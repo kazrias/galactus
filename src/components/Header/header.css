@@ -1,7 +1,32 @@
-.header{
+.header {
+  background-color: rgb(0, 0, 0);
   height: 80px;
-  border-bottom: 1px solid grey;
+  padding: 0 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.header-link {
   display: flex;
-  justify-content: center;
-  gap: 30px;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  text-decoration: none;
+
+}
+
+.header-logo {
+  height: 100%;
+}
+
+.header-link span {
+  display: block;
+  margin-left: -5px;
+  font-size: 24px;
+  text-shadow:
+    1px 1px 2px rgb(148, 19, 168),
+    0 0 1em rgb(148, 19, 168),
+    0 0 0.2em rgb(148, 19, 168);
+
 }
