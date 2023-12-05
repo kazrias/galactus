@@ -5,7 +5,7 @@ export const Header = () => {
     <header className='header'>
       <a className='header-link' href="">
         <img className='header-logo' src={logo} alt="" />
-        <span>myShop</span>
+        <span>Galactus</span>
       </a>
     </header>
   )

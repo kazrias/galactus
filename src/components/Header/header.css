@@ -1,10 +1,11 @@
 .header {
   background-color: rgb(0, 0, 0);
-  height: 80px;
+  height: 65px;
   padding: 0 20px;
   position: fixed;
   left: 0;
   right: 0;
+  box-shadow: 1px 1px 5px rgba(110, 7, 119, 0.5);
 }
 
 .header-link {
@@ -22,7 +23,6 @@
 
 .header-link span {
   display: block;
-  margin-left: -5px;
   font-size: 24px;
   text-shadow:
     1px 1px 2px rgb(148, 19, 168),
