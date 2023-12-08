@@ -1,15 +1,13 @@
-.filter-screen{
-  background-image: url('../../images/Leonardo_Vision_XL_A_mesmerizing_astral_sky_exploring_the_dept_1.jpg');
+.filter-screen {
+  background-image: url('../../images/2.jpg');
   height: 500px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
-  /* box-shadow: inset 0 0  500px rgba(128, 0, 128, 0.614), */
-  /* 0px 1px 8px rgba(128, 0, 128, 0.614); */
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 48px;
   color: #fff;
-  box-shadow: 1px 1px 5px rgba(110, 7, 119, 0.5);
+  box-shadow: 1px 1px 10px  rgba(110, 7, 119, 0.5);
 }
