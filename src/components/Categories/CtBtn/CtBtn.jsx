@@ -1,3 +1,4 @@
+import './CtBtn.css'
 export const CtBtn = ({ type, currCategory, setCurrCategory }) => {
   console.log(type,"and",currCategory);
   return (

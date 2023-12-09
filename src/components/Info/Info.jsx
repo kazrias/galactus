@@ -19,7 +19,7 @@ export const Info = () => {
     <section className="info">
       <div className="container container--info">
         <Categories currCategory={currCategory} setCurrCategory={setCurrCategory} />
-        <h1 className="info-title">{currCategory}</h1>
+        {/* <h1 className="info-title">{currCategory}</h1> */}
         <Products items={products} />
       </div>
     </section>
