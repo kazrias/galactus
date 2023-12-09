@@ -8,21 +8,22 @@
 }
 
 .products-item__link {
-  display: block;
   position: relative;
-  text-decoration: none;
 }
-.products-item__hidden{
+
+.products-item__hidden {
   position: absolute;
   height: 330px;
   top: 0;
   right: 0;
 }
-.products-item__hidden--secondImg{
+
+.products-item__hidden--secondImg {
   left: 20%;
   width: 40%;
 }
-.products-item__hidden--thirdImg{
+
+.products-item__hidden--thirdImg {
   right: 0;
   width: 40%;
 }
@@ -37,9 +38,6 @@
 .products-item__price {
   font-size: 18px;
   color: #fff;
-}
-
-.products-item__price {
   width: 247px;
   margin: 0 auto;
 }

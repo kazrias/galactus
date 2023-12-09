@@ -7,7 +7,11 @@
 body {
   min-height: 400vh;
 }
-
+a{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
 .container {
   max-width: 1150px;
   padding: 0 15px;
