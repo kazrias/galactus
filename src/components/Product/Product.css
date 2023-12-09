@@ -1,6 +1,6 @@
 .products-item {
   flex: 1 1 25%;
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
   box-shadow: inset -1px 0 0 0 #e8e8e8, inset 0 -1px 0 0 #e8e8e8, -1px -1px 0 0 #e8e8e8, -1px 0 0 0 #e8e8e8, 0 -1px 0 0 #e8e8e8;
   display: flex;
   flex-direction: column;
@@ -9,6 +9,7 @@
 
 .products-item__link {
   position: relative;
+  margin-bottom: 15px;
 }
 
 .products-item__hidden {
@@ -34,8 +35,19 @@
 
 .products-item__title,
 .products-item__price {
-  font-size: 18px;
   color: #fff;
   width: 247px;
   margin: 0 auto;
+}
+
+.products-item__title h4 {
+  max-width: 180px;
+}
+
+.products-item__price {
+  font-size: 18px;
+}
+
+.products-item__title {
+  font-size: 22px;
 }
