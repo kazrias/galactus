@@ -11,7 +11,7 @@ export const Product = ({ name, price, images }) => {
         <div onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} className='products-item__hidden products-item__hidden--thirdImg'></div>
       </a>
       <a href="#" className='products-item__title'><h4>{name}</h4></a>
-      <p className='products-item__price'>{price}</p>
+      <p className='products-item__price'>{price}$</p>
 
     </div>
   )
