@@ -7,20 +7,17 @@ import axios from 'axios';
 export const Info = () => {
   const [products, setProducts] = useState([]);
   const [currCategory, setCurrCategory] = useState('Clothes')
-  const changeCategory=(newCategory)=>{
 
-  }
   useEffect(() => {
     async function fetchData() {
       const productRes = await axios.get(`https://65738184063f876cec9cfc5b.mockapi.io/${currCategory}`);
       setProducts(productRes.data);
-
     }
     fetchData();
-  }, [])
+  }, [currCategory])
   return (
     <section className="info">
-      <div className="container">
+      <div className="container container--info">
         <Categories currCategory={currCategory} setCurrCategory={setCurrCategory} />
         <h1 className="info-title">{currCategory}</h1>
         <Products items={products} />
