@@ -1,5 +1,6 @@
 .header {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, .4);
+
   height: 65px;
   padding: 0 20px;
   position: fixed;

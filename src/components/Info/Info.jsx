@@ -10,7 +10,12 @@ export const Info = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const productRes = await axios.get(`https://65738184063f876cec9cfc5b.mockapi.io/${currCategory}`);
+      let urlToFetch = ''
+      if (currCategory === 'Clothes' || currCategory === 'Shoes')
+        urlToFetch = 'https://65738184063f876cec9cfc5b.mockapi.io/'
+      else
+        urlToFetch = 'https://6575ca31b2fbb8f6509d8140.mockapi.io/'
+      const productRes = await axios.get(urlToFetch+currCategory);
       setProducts(productRes.data);
     }
     fetchData();
