@@ -3,16 +3,18 @@
   border: 0;
   text-decoration: none;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 136, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(30px);
+  /* backdrop-filter: blur(30px); */
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   letter-spacing: 2px;
   cursor: pointer;
   text-transform: uppercase;
+  transition: all .3s;
 }
 
 .category-btn.active {
   background-color: rgba(255, 255, 255, 0.427);
+  box-shadow: 0 0 5px lightblue;
 }
