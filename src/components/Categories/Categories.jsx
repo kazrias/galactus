@@ -15,10 +15,6 @@ const btns = [
   },
   {
     'id': 4,
-    'type': 'Electronics',
-  },
-  {
-    'id': 5,
     'type': 'Beauty',
   },
 ]
