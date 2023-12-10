@@ -1,13 +1,22 @@
-.info{
+.info {
   padding-top: 40px;
 }
-.info-title{
+
+.info-title {
   font-size: 40px;
   padding: 15px 0;
   color: #fff;
 }
-.container.container--info{
+
+.container.container--info {
   min-height: 500px;
   padding-top: 25px;
   padding-bottom: 25px;
+  background: rgba(23, 228, 212, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(23, 228, 212, 0.3);
+  box-shadow: 0px 0px 200px 10px rgba(5, 193, 226, 0.5);
+  margin-bottom: 20px;
 }
