@@ -10,7 +10,7 @@
 
 .products-item__link {
   position: relative;
-  max-width: 280px;
+  width: 250px;
   height: 330px;
   /* margin-bottom: 15px; */
   /* padding: 10px 10px 0 10px; */
