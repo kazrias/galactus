@@ -13,7 +13,18 @@
   font-display: swap;
 }
 
-
+input,
+textarea,
+button,
+select,
+img,
+div,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+*:focus{
+  outline: none;
+}
 a{
   text-decoration: none;
   color: inherit;

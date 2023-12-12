@@ -34,7 +34,7 @@ export const Product = ({ id, name, price, images }) => {
         <p className='products-item__price'>{price}$</p>
         <button onClick={() => setIsAdded((prev) => !prev)} className={`products-item__add ${isAdded ? 'active' : ''}`}><img src={isAdded ? added : add} alt="add/delete" /></button>
       </div>
-      <button onClick={() => onClickLike(id)} className={`products-item__like ${isLiked ? 'active' : ''}`} > <img src={isLiked ? like : unlike} alt="add/delete" /></button>
+      <button onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} onClick={() => onClickLike(id)} className={`products-item__like ${isLiked ? 'active' : ''}`} > <img src={isLiked ? like : unlike} alt="add/delete" /></button>
     </div >
   )
 }
