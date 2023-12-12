@@ -33,13 +33,13 @@ export const Product = ({ setCartItems, cartItems, id, name, price, images }) =>
 
   return (
     <div className="products-item">
-      <a className="products-item__link" href="#">
+      <div className="products-item__link" href="#">
         <img className='products-item__img' src={isHoveredSecond ? images.second : isHoveredThird ? images.third : images.first} alt="" />
         <div onMouseEnter={() => setIsHoveredSecond(true)} onMouseLeave={() => setIsHoveredSecond(false)} className='products-item__hidden products-item__hidden--secondImg'></div>
         <div onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} className='products-item__hidden products-item__hidden--thirdImg'></div>
-      </a>
+      </div>
       <div className="products-item__info">
-        <a href="#" className='products-item__title'><h4>{name}</h4></a>
+        <p className='products-item__title'><span>{name}</span></p>
         <p className='products-item__price'>{price}$</p>
         <button onClick={() => onClickAdd({ id, name, price, images })} className={`products-item__add ${isAdded ? 'active' : ''}`}><img src={isAdded ? added : add} alt="add/delete" /></button>
       </div>

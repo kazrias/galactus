@@ -68,12 +68,13 @@
   color: #fff;
 }
 
-.products-item__title h4 {
+.products-item__title span {
+  display: block;
   max-width: 180px;
 }
 
 .products-item__price,
-.products-item__title h4 {
+.products-item__title span {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
 }
