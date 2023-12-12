@@ -443,7 +443,6 @@
 
 .ufo-upper .cockpit .alien .eye:hover:after {
   margin-top: 16px;
-  webkit-animation-play-state: paused;
   -moz-animation-play-state: paused;
   -o-animation-play-state: paused;
   animation-play-state: paused;
