@@ -26,7 +26,6 @@ const App = () => {
   useEffect(() => {
     const localData = localStorage.getItem('cartItems');
     if (localData !== null) {
-      console.log('localData', localData)
       setCartItems([...JSON.parse(localData)])
     }
   }, [])

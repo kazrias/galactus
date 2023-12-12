@@ -5,6 +5,7 @@ import { Products } from '../Products/Products';
 import axios from 'axios';
 
 export const Info = ({setCartItems,cartItems}) => {
+
   const [products, setProducts] = useState([]);
   const [currCategory, setCurrCategory] = useState('Clothes')
   useEffect(() => {

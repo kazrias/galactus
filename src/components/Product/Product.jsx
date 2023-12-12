@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Product.css'
 import add from '../../images/add.svg'
 import added from '../../images/added.svg'
@@ -7,9 +7,12 @@ import unlike from '../../images/unliked.svg'
 export const Product = ({ setCartItems, cartItems, id, name, price, images }) => {
   const [isHoveredSecond, setIsHoveredSecond] = useState(false);
   const [isHoveredThird, setIsHoveredThird] = useState(false);
-  const [isAdded, setIsAdded] = useState(cartItems.some(item => Number(item.id) === Number(id)));
+  const [isAdded, setIsAdded] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
 
+  useEffect(() => {
+    setIsAdded(cartItems.some(item => Number(item.id) === Number(id)));
+  }, [cartItems])
 
   const onClickLike = (id) => {
     if (isLiked) {
@@ -23,7 +26,7 @@ export const Product = ({ setCartItems, cartItems, id, name, price, images }) =>
 
   const onClickAdd = (product) => {
     if (isAdded) {
-      setCartItems((prev) => prev.filter(item => { console.log(item.id, product.id); return Number(item.id) !== Number(product.id) }));
+      setCartItems((prev) => prev.filter(item => Number(item.id) !== Number(product.id)));
     }
     else {
       setCartItems((prev) => [...prev, product])
