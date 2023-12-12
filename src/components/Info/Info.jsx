@@ -4,10 +4,9 @@ import { useState, useEffect } from 'react';
 import { Products } from '../Products/Products';
 import axios from 'axios';
 
-export const Info = () => {
+export const Info = ({setCartItems,cartItems}) => {
   const [products, setProducts] = useState([]);
   const [currCategory, setCurrCategory] = useState('Clothes')
-  const [favItems, setFavItems] = useState([]);
   useEffect(() => {
     async function fetchData() {
       let urlToFetch = ''
@@ -20,24 +19,13 @@ export const Info = () => {
     }
     fetchData();
   }, [currCategory])
-  useEffect(() => {
-    async function fetchFavs() {
-      try {
-        const favs = await axios.get('https://65773d3b197926adf62dc01f.mockapi.io/Favorites');
-        setFavItems(favs.data);
-      }
-      catch (err) {
-        console.log(err);
-      }
-    }
-    fetchFavs();
-  }, [])
+
   return (
     <section className="info">
       <div className="container container--info">
         <Categories currCategory={currCategory} setCurrCategory={setCurrCategory} />
         {/* <h1 className="info-title">{currCategory}</h1> */}
-        <Products favItems={favItems} items={products} />
+        <Products setCartItems={setCartItems} cartItems={cartItems} items={products} />
       </div>
     </section>
   )
