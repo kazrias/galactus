@@ -1,6 +1,5 @@
 import './Cart.css'
-import { Header } from '../Header/Header'
-import { Product } from '../Product/Product'
+import { CartItem } from '../CartItem/CartItem';
 export const Cart = ({ isCartClosing, isCartOpened, setCartItems, cartItems = [] }) => {
   console.log(cartItems);
   return (
@@ -9,7 +8,7 @@ export const Cart = ({ isCartClosing, isCartOpened, setCartItems, cartItems = []
       <div className={`cart ${isCartClosing ? 'closing' : ''}`}>
         {
           cartItems.map(obj => (
-            <Product setCartItems={setCartItems} cartItems={cartItems} key={obj.id} {...obj} />
+            <CartItem setCartItems={setCartItems} cartItems={cartItems} key={obj.id} {...obj} />
           ))
         }
       </div>

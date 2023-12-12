@@ -17,6 +17,7 @@
 }
 
 .cart {
+  padding: 30px;
   position: absolute;
   top: 65px;
   width: 420px;
@@ -27,6 +28,9 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(0px);
   animation: rightToLeft .5s forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .overlay.closing {
