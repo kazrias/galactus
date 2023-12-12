@@ -9,6 +9,20 @@ import { Cart } from "./components/Cart/Cart";
 import './app.css'
 const App = () => {
   const [cartItems, setCartItems] = useState([])
+  const [isCartOpened, setIsCartOpened] = useState(false);
+  const [isCartClosing, setIsCartClosing] = useState(false);
+  const onClickCart = () => {
+    if (isCartOpened) {
+      setIsCartClosing(true);
+      setTimeout(() => {
+        setIsCartOpened((prev) => !prev);
+      }, 500)
+    }
+    else {
+      setIsCartClosing(false);
+      setIsCartOpened((prev) => !prev);
+    }
+  }
   useEffect(() => {
     const localData = localStorage.getItem('cartItems');
     if (localData !== null) {
@@ -23,10 +37,10 @@ const App = () => {
   return (
     <>
       <Background />
-      <Header />
+      <Header onClickCart={onClickCart} />
       <Screen />
       <Info setCartItems={setCartItems} cartItems={cartItems} />
-      <Cart setCartItems={setCartItems} cartItems={cartItems} />
+      <Cart isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />
     </>
   )
 }
