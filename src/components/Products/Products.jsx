@@ -1,13 +1,11 @@
 import './Products.css'
 import { Product } from "../Product/Product"
-export const Products = ({ setCartItems,cartItems, items = [] }) => {
-
+export const Products = ({ isLoading, setCartItems, cartItems, items = [] }) => {
   return (
-
     <section className="products">
       {
-        items.map(obj => (
-          <Product setCartItems={setCartItems} cartItems={cartItems} key={obj.id} {...obj} />
+        (isLoading ? [...Array(8)] : items).map((obj, index) => (
+          <Product isLoading={isLoading} setCartItems={setCartItems} cartItems={cartItems} key={isLoading ? index : obj.id} {...obj} />
         ))
       }
     </section>
