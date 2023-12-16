@@ -248,3 +248,25 @@
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 100%;
 }
+
+@media screen and (max-height: 880px) {
+  .scene {
+    top: 45%;
+  }
+}
+
+@media screen and (max-height: 820px) {
+  .scene {
+    top: 50%;
+  }
+}
+@media screen and (max-height: 720px) {
+  .scene {
+    top: 55%;
+  }
+}
+@media screen and (max-height: 650px) {
+  .scene {
+    top: 60%;
+  }
+}
