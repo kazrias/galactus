@@ -16,7 +16,7 @@ export const Product = ({ isLoading, setCartItems, cartItems, id, name, price, i
       console.log(`item.id=${item.id}, id=${id}`);
       return Number(item.id) === Number(id)
     }));
-  }, [cartItems])
+  }, [isLoading,cartItems])
 
   const onClickLike = () => {
     setIsLiked((prev) => !prev)
