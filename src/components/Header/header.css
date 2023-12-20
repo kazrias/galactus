@@ -44,6 +44,8 @@
   border: none;
   width: 24px;
   height: 24px;
+  position: relative;
+  cursor: pointer;
 }
 
 
@@ -54,5 +56,4 @@
 
 .header-btn--shadow {
   filter: drop-shadow(1px 1px 2px rgb(148, 19, 168)) drop-shadow(0 0 1px rgb(148, 19, 168));
-  cursor: pointer;
 }

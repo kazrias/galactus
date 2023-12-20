@@ -5,7 +5,6 @@ import added from '../../images/added.svg'
 import like from '../../images/liked.svg'
 import unlike from '../../images/unliked.svg'
 import Sceleton from '../Sceleton/Sceleton'
-import ContentLoader from "react-content-loader"
 export const Product = ({ isLoading, setCartItems, cartItems, id, name, price, images }) => {
   const [isHoveredSecond, setIsHoveredSecond] = useState(false);
   const [isHoveredThird, setIsHoveredThird] = useState(false);
@@ -13,16 +12,13 @@ export const Product = ({ isLoading, setCartItems, cartItems, id, name, price, i
   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
-    setIsAdded(cartItems.some(item => Number(item.id) === Number(id)));
+    setIsAdded(cartItems.some(item => {
+      console.log(`item.id=${item.id}, id=${id}`);
+      return Number(item.id) === Number(id)
+    }));
   }, [cartItems])
 
-  const onClickLike = (id) => {
-    if (isLiked) {
-      localStorage.removeItem(id)
-    }
-    else {
-      localStorage.setItem(id, true)
-    }
+  const onClickLike = () => {
     setIsLiked((prev) => !prev)
   }
 
@@ -49,7 +45,7 @@ export const Product = ({ isLoading, setCartItems, cartItems, id, name, price, i
           <p className='products-item__price'>{price}$</p>
           <button onClick={() => onClickAdd({ id, name, price, images })} className={`products-item__add ${isAdded ? 'active' : ''}`}><img src={isAdded ? added : add} alt="add/delete" /></button>
         </div>
-        <button onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} onClick={() => onClickLike(id)} className={`products-item__like ${isLiked ? 'active' : ''}`} > <img src={isLiked ? like : unlike} alt="add/delete" /></button>
+        <button onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} onClick={onClickLike} className={`products-item__like ${isLiked ? 'active' : ''}`} > <img src={isLiked ? like : unlike} alt="add/delete" /></button>
       </div >
     }
 

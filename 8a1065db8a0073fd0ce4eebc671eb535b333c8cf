@@ -1,0 +1,215 @@
+[33mcommit ebc83364f1389574a7f0a4d1b6a579d383372b3b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sat Dec 16 11:50:47 2023 +0400
+
+    Add loading animation
+
+[33mcommit 8a1065db8a0073fd0ce4eebc671eb535b333c8cf[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sat Dec 16 09:07:03 2023 +0400
+
+    Add media query for height scene
+
+[33mcommit 8f890178891abb1291320aafa256ad5a902d9ddd[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 23:49:02 2023 +0400
+
+    Delete unused line
+
+[33mcommit d4f580965247f1c2d8bef2a07955689aed6eba2b[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 23:48:36 2023 +0400
+
+    Change margin
+
+[33mcommit 14c2a698e0c1a571f6ec27670a6d9810f773becc[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 23:22:04 2023 +0400
+
+    Add space background for cart and UFO animation if empty
+
+[33mcommit 4d1d00a5d39df500106ed3a78316d9a5bc89fb05[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 21:42:06 2023 +0400
+
+    Add cart item delete btn
+
+[33mcommit 9b42b43552bbc69044412aa4aaa0a70c77749649[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 20:39:08 2023 +0400
+
+    Change h4 to span
+
+[33mcommit 2fc1092e256b267c7ffca6999cd84e86e24e5175[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 19:01:13 2023 +0400
+
+    Style cart items
+
+[33mcommit 43e5e785a9e5cb92c662fd5865a7738e566d6424[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 18:40:57 2023 +0400
+
+    Add cart and its overlay
+
+[33mcommit 0c0f6f62baadaa61d745e7108d4e0f3f1e72de28[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 17:19:17 2023 +0400
+
+    Add poppins font and css file for fonts
+
+[33mcommit dfdf0e2b32e8e1c220451f8577e43fdab0d3c960[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 05:15:34 2023 +0400
+
+    Add cart items in local storage as array
+
+[33mcommit d7eeda95e5b330aa84172d548fd7ef3e940e14c9[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 12 04:04:25 2023 +0400
+
+    Add fav and cart icons
+
+[33mcommit 9fc6bec160278489e5f7fc0b21f594d6105a799e[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Mon Dec 11 23:00:21 2023 +0400
+
+    Add fake DB localStorage
+
+[33mcommit 15f2ece169b6c19887d7a32722ebc2c28ef5840c[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Mon Dec 11 00:08:04 2023 +0400
+
+    Change button design add transition and box shadow
+
+[33mcommit 2455e4f3d67dfafc05637155c31c6082c9686aa4[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Mon Dec 11 00:00:57 2023 +0400
+
+    Change product card desing
+
+[33mcommit dcfa510f4bfad82356bfd5bab9079f6f9bb59205[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sun Dec 10 23:25:33 2023 +0400
+
+    Change background shadow and border radius
+
+[33mcommit a35809ac2195aef133add6088248552d4c94fdb3[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sun Dec 10 23:10:04 2023 +0400
+
+    Add website title and logo
+
+[33mcommit d3be48b8637ac07fba7410d0bbb543639d3cc79b[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sun Dec 10 23:00:25 2023 +0400
+
+    Change background animation duration
+
+[33mcommit c5e676c5d6ee831fcfdf2c24473c305122652f47[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sun Dec 10 22:57:51 2023 +0400
+
+    Fix header link
+
+[33mcommit 5b2a3b14ac1ecd1a406f401c4ff8dc7b41aa5da2[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sun Dec 10 21:46:20 2023 +0400
+
+    Add background and object fit contain for imgs
+
+[33mcommit 0d284a9a1b2842894f9eabdf854db3fe7e331aec[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sun Dec 10 20:25:15 2023 +0400
+
+    Add new font
+
+[33mcommit 42756bf49828f44b31a3562d985efe6474b9e7e9[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sun Dec 10 20:04:45 2023 +0400
+
+    Change header design and product items title and price box color
+
+[33mcommit 20b87415281909cbf904dbaef99361e366aaa281[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sun Dec 10 03:52:50 2023 +0400
+
+    Add min-width product-img
+
+[33mcommit c1b2a2432b1af51af4f8502f1104adb75f841d8e[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sat Dec 9 22:18:19 2023 +0400
+
+    Fix padding of product-item
+
+[33mcommit 66f68f712caf4d33160ef8ffabeca2f99941dd8b[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sat Dec 9 22:09:33 2023 +0400
+
+    Fix padding and margin
+
+[33mcommit dd947bd169ee1fe98cf32c1dc87a60ee72bfdcdc[m
+Author: Artyom Harutyunyan <ka6rias@gmail.com>
+Date:   Sat Dec 9 17:37:46 2023 +0400
+
+    Change header css
+
+[33mcommit 0ee795993aa0e0e1985b106d93e60e0c69dc3800[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sat Dec 9 11:45:33 2023 +0400
+
+    Fix title link
+
+[33mcommit 11ac4fb693eddd75e86da742c5c4c42b86905bc0[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sat Dec 9 11:41:02 2023 +0400
+
+    Fix price position
+
+[33mcommit 9db286af5b75e121b72a46900cf69933f8698ffe[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sat Dec 9 11:17:54 2023 +0400
+
+    Add product img change on hover
+
+[33mcommit 803978715fc8d6ea1cbf1043d6bc0bbf02fac96f[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Sat Dec 9 02:49:27 2023 +0400
+
+    Add products
+
+[33mcommit fdbcd4318c2b56ab5a15a9079662319a763bfe13[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Fri Dec 8 20:26:06 2023 +0400
+
+    Change background, add animation
+
+[33mcommit ed4326e1492a570d01bd7da0acd25d6da667fc5d[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 5 21:49:23 2023 +0400
+
+    Add box-shadow for header and filterScreen
+
+[33mcommit 8c329183477501a82a5f3582f41a1cd4ddba01d4[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 5 21:46:36 2023 +0400
+
+    Add background and FilterScreen component
+
+[33mcommit fd6990b26c81f43b883a419857d61688a1a377b7[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 5 21:22:49 2023 +0400
+
+    Add header and icon
+
+[33mcommit 0c4c8e0c03cb7e9bcf71492103c81d7eaff4e451[m
+Author: kazrias <ka6rias@gmail.com>
+Date:   Tue Dec 5 19:54:15 2023 +0400
+
+    Delete components
+
+[33mcommit 0fd8af83b4c52def04bd61a0053ed470e60cd929[m
+Author: Artyom Harutyunyan <ka6rias@gmail.com>
+Date:   Tue Dec 5 19:31:14 2023 +0400
+
+    First commit

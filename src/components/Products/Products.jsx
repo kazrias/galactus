@@ -1,6 +1,6 @@
 import './Products.css'
 import { Product } from "../Product/Product"
-export const Products = ({ isLoading, setCartItems, cartItems, items = [] }) => {
+export const Products = ({ isLoading, setCartItems, cartItems, items }) => {
   return (
     <section className="products">
       {
