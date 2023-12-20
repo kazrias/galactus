@@ -13,10 +13,9 @@ export const Product = ({ isLoading, setCartItems, cartItems, id, name, price, i
 
   useEffect(() => {
     setIsAdded(cartItems.some(item => {
-      console.log(`item.id=${item.id}, id=${id}`);
       return Number(item.id) === Number(id)
     }));
-  }, [isLoading,cartItems])
+  }, [isLoading, cartItems])
 
   const onClickLike = () => {
     setIsLiked((prev) => !prev)

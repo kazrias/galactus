@@ -11,6 +11,7 @@ const App = () => {
   const [cartItems, setCartItems] = useState([])
   const [isCartOpened, setIsCartOpened] = useState(false);
   const [isCartClosing, setIsCartClosing] = useState(false);
+  const [cartCount, setCartCount] = useState(0)
   const onClickCart = () => {
     if (isCartOpened) {
       setIsCartClosing(true);
@@ -30,15 +31,14 @@ const App = () => {
     }
   }, [])
   useEffect(() => {
+    setCartCount(cartItems.length)
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    // console.log(cartItems);
-    // console.log(localStorage.getItem('cartItems'));
   }, [cartItems])
 
   return (
     <>
       <Background />
-      <Header onClickCart={onClickCart} />
+      <Header onClickCart={onClickCart} cartCount={cartCount} />
       <Screen />
       <Info setCartItems={setCartItems} cartItems={cartItems} />
       <Cart isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />
