@@ -6,6 +6,8 @@
   overflow: hidden;
   /* align-items: center; */
   position: relative;
+  min-height: 120px;
+  width: 360px;
 }
 
 .cart-item__img {
