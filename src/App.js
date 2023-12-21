@@ -33,11 +33,16 @@ const App = () => {
     }
   }
   useEffect(() => {
-    const localData = localStorage.getItem('cartItems');
-    if (localData !== null) {
-      setCartItems([...JSON.parse(localData)])
+    const localCartData = localStorage.getItem('cartItems');
+    const localOrdersData = localStorage.getItem('orders');
+    if (localCartData !== null) {
+      setCartItems([...JSON.parse(localCartData)])
+    }
+    if (localOrdersData !== null) {
+      setOrders([...JSON.parse(localOrdersData)])
     }
   }, [])
+  
   useEffect(() => {
     setCartCount(cartItems.length)
     setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
