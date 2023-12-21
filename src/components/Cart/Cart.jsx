@@ -3,10 +3,11 @@ import { Ufo } from '../Ufo/Ufo';
 import { CartItem } from '../CartItem/CartItem';
 import { Space } from '../Space/Space';
 import { Total } from '../Total/Total';
-export const Cart = ({ isCartClosing, isCartOpened, setCartItems, cartItems = [] }) => {
+export const Cart = ({ onClickOverlay, isCartClosing, isCartOpened, setCartItems, cartItems = [] }) => {
+  console.log('cart render');
   return (
     isCartOpened && <div className="cart-wrapper">
-      < div className={`overlay ${isCartClosing ? 'closing' : ''}`} ></div >
+      <div onClick={onClickOverlay} className={`overlay ${isCartClosing ? 'closing' : ''}`} ></div >
       <div className={`cart ${isCartClosing ? 'closing' : ''}`}>
 
         <div className="cart-items">
@@ -17,7 +18,10 @@ export const Cart = ({ isCartClosing, isCartOpened, setCartItems, cartItems = []
           }
         </div>
         <Space />
-        <Total />
+        {
+          cartItems.length ? <Total cartItems={cartItems} /> : null
+        }
+
       </div>
     </div>
   )

@@ -12,6 +12,12 @@ const App = () => {
   const [isCartOpened, setIsCartOpened] = useState(false);
   const [isCartClosing, setIsCartClosing] = useState(false);
   const [cartCount, setCartCount] = useState(0)
+  const onClickOverlay = () => {
+    setIsCartClosing(true);
+    setTimeout(() => {
+      setIsCartOpened(false);
+    }, 500)
+  }
   const onClickCart = () => {
     if (isCartOpened) {
       setIsCartClosing(true);
@@ -41,7 +47,7 @@ const App = () => {
       <Header onClickCart={onClickCart} cartCount={cartCount} />
       <Screen />
       <Info setCartItems={setCartItems} cartItems={cartItems} />
-      <Cart isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />
+      {isCartOpened && <Cart onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
     </>
   )
 }
