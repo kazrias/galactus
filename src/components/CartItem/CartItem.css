@@ -8,6 +8,7 @@
   position: relative;
   min-height: 120px;
   width: 360px;
+  border: 1.5px solid #000;
 }
 
 .cart-item__img {

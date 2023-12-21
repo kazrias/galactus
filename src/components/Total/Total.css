@@ -1,0 +1,21 @@
+.total {
+  display: flex;
+  width: 100%;
+  padding: 30px;
+  gap: 5px;
+}
+
+.total div {
+  flex: 1;
+  height: 1px;
+  border-bottom: 1px dashed #dfdfdf;
+  position: relative;
+  bottom: -20px;
+}
+
+.total-text,
+.total-money {
+  color: #fff;
+  font-family: 'Poppins';
+  font-size: 20px;
+}
