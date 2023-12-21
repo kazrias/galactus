@@ -4,17 +4,17 @@
 
 /* Track */
 .cart-items::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 /* Handle */
 .cart-items::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #808080a5;
 }
 
 /* Handle on hover */
 .cart-items::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #555555b3;
 }
 
 .cart-wrapper {

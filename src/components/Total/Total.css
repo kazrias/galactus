@@ -1,7 +1,15 @@
+.total-box {
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .total {
   display: flex;
   width: 100%;
-  padding: 30px;
+
   gap: 5px;
 }
 
@@ -18,4 +26,22 @@
   color: #fff;
   font-family: 'Poppins';
   font-size: 20px;
+}
+
+.total-btn {
+  font-family: 'MBF Inno';
+  letter-spacing: 5px;
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  font-size: 30px;
+  line-height: 29px;
+  padding: 15px 10px;
+  border: 1px solid #1fc6eb57;
+  transition: box-shadow .35s;
+}
+
+.total-btn:hover {
+  box-shadow: inset 0 0 15px 1px #00ffcc, inset 0 0 50px 7px rgb(67, 172, 216)
 }
