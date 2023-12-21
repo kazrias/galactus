@@ -11,7 +11,8 @@ const App = () => {
   const [cartItems, setCartItems] = useState([])
   const [isCartOpened, setIsCartOpened] = useState(false);
   const [isCartClosing, setIsCartClosing] = useState(false);
-  const [cartCount, setCartCount] = useState(0)
+  const [cartCount, setCartCount] = useState(0);
+  const [total, setTotal] = useState(0);
   const onClickOverlay = () => {
     setIsCartClosing(true);
     setTimeout(() => {
@@ -38,16 +39,17 @@ const App = () => {
   }, [])
   useEffect(() => {
     setCartCount(cartItems.length)
+    setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems])
 
   return (
     <>
       <Background />
-      <Header onClickCart={onClickCart} cartCount={cartCount} />
+      <Header total={total} onClickCart={onClickCart} cartCount={cartCount} />
       <Screen />
       <Info setCartItems={setCartItems} cartItems={cartItems} />
-      {isCartOpened && <Cart onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
+      {isCartOpened && <Cart total={total} onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
     </>
   )
 }

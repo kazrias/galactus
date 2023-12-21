@@ -2,7 +2,7 @@ import './Header.css'
 import logo from '../../images/logo.png'
 import { CartBtn } from '../CartBtn/CartBtn'
 import { FavBtn } from '../FavBtn/FavBtn'
-export const Header = ({ onClickCart,cartCount }) => {
+export const Header = ({ total, onClickCart, cartCount }) => {
 
   return (
 
@@ -13,7 +13,8 @@ export const Header = ({ onClickCart,cartCount }) => {
       </a>
       <div className="header-btns">
         <FavBtn />
-        <CartBtn onClickCart={onClickCart} cartCount={cartCount}/>
+        
+        <CartBtn total={total} onClickCart={onClickCart} cartCount={cartCount} />
       </div>
     </header>
   )
