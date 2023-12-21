@@ -1,5 +1,5 @@
 import './Total.css'
-export const Total = ({ total}) => {
+export const Total = ({ onClickOrder, total }) => {
   return (
     <div className='total-box'>
       <div className="total">
@@ -7,7 +7,7 @@ export const Total = ({ total}) => {
         <div></div>
         <p className='total-money'>{total}$</p>
       </div>
-      <button className='total-btn'>Order</button>
+      <button onClick={onClickOrder} className='total-btn'>Order</button>
     </div>
   )
 }

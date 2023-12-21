@@ -3,7 +3,7 @@ import { Ufo } from '../Ufo/Ufo';
 import { CartItem } from '../CartItem/CartItem';
 import { Space } from '../Space/Space';
 import { Total } from '../Total/Total';
-export const Cart = ({ total,onClickOverlay, isCartClosing, isCartOpened, setCartItems, cartItems = [] }) => {
+export const Cart = ({ total,onClickOverlay, isCartClosing, isCartOpened, setCartItems, cartItems = [] ,onClickOrder }) => {
   console.log('cart render');
   return (
     isCartOpened && <div className="cart-wrapper">
@@ -19,7 +19,7 @@ export const Cart = ({ total,onClickOverlay, isCartClosing, isCartOpened, setCar
         </div>
         <Space />
         {
-          cartItems.length ? <Total total={total} /> : null
+          cartItems.length ? <Total onClickOrder={onClickOrder} total={total} /> : null
         }
 
       </div>
