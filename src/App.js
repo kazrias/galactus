@@ -57,6 +57,13 @@ const App = () => {
     );
     setCartItems([]);
   }
+  const onClickClearOrders = () => {
+    setOrders(() => {
+      localStorage.setItem('orders', JSON.stringify([]));
+      return []
+    }
+    );
+  }
 
   return (
     <>
@@ -64,7 +71,7 @@ const App = () => {
       <Header total={total} onClickCart={onClickCart} cartCount={cartCount} />
       <Routes>
         <Route path='/' element={<Home path={'home'} setCartItems={setCartItems} cartItems={cartItems} />} />
-        <Route path='/orders' element={<OrdersPage path={'orders'} setCartItems={setCartItems} cartItems={cartItems} items={orders} />} />
+        <Route path='/orders' element={<OrdersPage onClickClearOrders={onClickClearOrders} path={'orders'} setCartItems={setCartItems} cartItems={cartItems} items={orders} />} />
       </Routes>
       {isCartOpened && <Cart onClickOrder={onClickOrder} total={total} onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
     </>

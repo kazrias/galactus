@@ -1,0 +1,40 @@
+.list {
+  padding: 95px 0;
+}
+
+.list-title {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 58px;
+  font-family: 'MBF Inno';
+  color: #fff;
+  position: relative;
+  z-index: 100;
+  margin-bottom: 10px;
+  letter-spacing: 10px;
+}
+
+.list-delete {
+  margin-top: 50px;
+  font-family: 'MBF Inno';
+  letter-spacing: 5px;
+  width: 300px;
+  
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  font-size: 30px;
+  line-height: 29px;
+  padding: 15px 10px;
+  border: 1px solid #1fc6eb57;
+  transition: box-shadow .35s;
+}
+
+.list-delete:hover {
+  box-shadow: inset 0 0 15px 1px #ff0000, inset 0 0 50px 7px rgb(216, 67, 67)
+}
+.button-wrapper{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
