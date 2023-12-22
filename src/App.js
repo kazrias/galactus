@@ -86,7 +86,7 @@ const App = () => {
   return (
     <>
       <Background />
-      <Header total={total} onClickCart={onClickCart} cartCount={cartCount} />
+      <Header onClickOverlay={onClickOverlay} total={total} onClickCart={onClickCart} cartCount={cartCount} />
       <Routes>
         <Route path='/' element={<Home path={'home'} setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} />} />
         <Route path='/orders' element={<OrdersPage onClickClearOrders={onClickClearOrders} path={'orders'} items={orders} />} />

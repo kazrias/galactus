@@ -1,6 +1,6 @@
-export const FavBtn = () => {
+export const FavBtn = ({onClickOverlay}) => {
   return (
-    <button className='header-btn'>
+    <button onClick={onClickOverlay} className='header-btn'>
       <svg className='header-fav__btn header-btn--shadow' width="80pt" height="80pt" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <g>
           <path fill="none" opacity="1.00" d=" M 0.00 0.00 L 80.00 0.00 L 80.00 80.00 L 0.00 80.00 L 0.00 0.00 M 6.59 15.61 C 3.64 21.71 4.73 28.87 7.05 34.99 C 11.85 47.41 21.13 57.33 30.40 66.59 C 33.63 69.87 36.69 73.44 40.78 75.70 C 50.80 65.37 61.86 55.72 69.21 43.17 C 72.50 37.30 75.60 30.89 75.44 24.00 C 75.56 18.90 73.47 13.74 69.70 10.29 C 64.05 5.12 55.18 3.97 48.32 7.27 C 44.77 8.92 42.39 12.13 40.03 15.11 C 38.27 12.85 36.57 10.46 34.24 8.73 C 25.51 2.10 11.25 5.72 6.59 15.61 Z" />
