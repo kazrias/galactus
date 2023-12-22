@@ -85,7 +85,6 @@ const App = () => {
 
   return (
     <>
-      <Background />
       <Header onClickOverlay={onClickOverlay} total={total} onClickCart={onClickCart} cartCount={cartCount} />
       <Routes>
         <Route path='/' element={<Home path={'home'} setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} />} />
@@ -94,6 +93,7 @@ const App = () => {
         <Route path='*' element={<NotFound />} />
       </Routes>
       {isCartOpened && <Cart onClickOrder={onClickOrder} total={total} onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
+      <Background />
     </>
   )
 }
