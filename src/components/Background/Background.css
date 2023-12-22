@@ -8,8 +8,11 @@
   right: 0;
   z-index: -3;
   -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 .bg::after {
