@@ -45,7 +45,7 @@ export const Product = ({ isLoading, setFavorites, favorites=[], setCartItems, c
   }
 
   return (<>
-    {
+    { 
       isLoading ? <Sceleton /> : <div className="products-item">
         <div className="products-item__link">
           <img className='products-item__img' src={isHoveredSecond ? images.second : isHoveredThird ? images.third : images.first} alt="" />

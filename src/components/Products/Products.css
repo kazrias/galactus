@@ -1,10 +1,25 @@
-.products{
+.products {
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
   /* justify-content: space-between; */
 }
-.products svg{
+
+.products svg {
   flex: 1 1 25%;
   height: 100%;
+}
+
+@media (max-width: 1090px) {
+  .products svg {
+    flex: 1 1 300px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 880px) {
+  .products svg {
+    flex: 1 1 280px;
+    height: 360px;
+  }
 }
