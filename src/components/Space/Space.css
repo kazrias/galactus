@@ -251,26 +251,8 @@
   border-bottom-right-radius: 100%;
 }
 
-@media screen and (max-height: 880px) {
-  .scene {
-    top: 45%;
+/* @media (max-width: 450px){
+  .container.container--info{
+    min-height: 300px;
   }
-}
-
-@media screen and (max-height: 820px) {
-  .scene {
-    top: 50%;
-  }
-}
-
-@media screen and (max-height: 720px) {
-  .scene {
-    top: 55%;
-  }
-}
-
-@media screen and (max-height: 650px) {
-  .scene {
-    top: 60%;
-  }
-}
+} */
