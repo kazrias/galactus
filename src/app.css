@@ -7,7 +7,7 @@
 }
 
 
-body:before {
+/* body:before {
   content: "";
   display: block;
   position: fixed;
@@ -21,6 +21,10 @@ body:before {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+} */
+body{
+  background: url('./images/mainBg.jpg') no-repeat;
+  background-attachment: fixed;
 }
 
 input,
