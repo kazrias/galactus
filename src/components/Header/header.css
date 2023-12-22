@@ -70,3 +70,34 @@
 .header-btn--shadow {
   filter: drop-shadow(1px 1px 2px rgb(19, 128, 168)) drop-shadow(0 0 1px rgb(19, 128, 168));
 }
+
+/* media */
+@media (max-width: 1270px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 570px) {
+  .header {
+    padding: 0 15px;
+  }
+
+  .header-btns {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 460px) {
+  .header-link span {
+    font-size: 20px;
+  }
+  .header-orders{
+    font-size: 14px;
+
+  }
+  .header-total{
+    font-size: 14px;
+    width: 60px;
+  }
+}

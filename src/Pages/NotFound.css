@@ -1,0 +1,18 @@
+@media (max-width: 940px){
+  .container--notFound h2{
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 540px){
+  .container--notFound h3{
+    font-size: 130px !important;
+  }
+}
+
+@media (max-width: 380px){
+  .container--notFound h2{
+    font-size: 24px !important;
+  }
+}
