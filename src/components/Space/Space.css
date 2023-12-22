@@ -251,8 +251,8 @@
   border-bottom-right-radius: 100%;
 }
 
-/* @media (max-width: 450px){
+@media (max-width: 1200px){
   .container.container--info{
     min-height: 300px;
   }
-} */
+}
