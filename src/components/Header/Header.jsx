@@ -1,4 +1,4 @@
-import './Header.css'
+import './HeaderStyle.css'
 import logo from '../../images/logo.png'
 import { CartBtn } from '../CartBtn/CartBtn'
 import { FavBtn } from '../FavBtn/FavBtn'
