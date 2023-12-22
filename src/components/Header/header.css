@@ -29,9 +29,9 @@
   display: block;
   font-size: 24px;
   text-shadow:
-    1px 1px 2px rgb(148, 19, 168),
-    0 0 1em rgb(148, 19, 168),
-    0 0 0.2em rgb(148, 19, 168);
+    1px 1px 2px rgb(19, 128, 168),
+    0 0 1em rgb(19, 128, 168),
+    0 0 0.2em rgb(19, 128, 168);
 }
 .header-total{
   font-family: "Poppins";
@@ -63,5 +63,5 @@
 }
 
 .header-btn--shadow {
-  filter: drop-shadow(1px 1px 2px rgb(148, 19, 168)) drop-shadow(0 0 1px rgb(148, 19, 168));
+  filter: drop-shadow(1px 1px 2px rgb(19, 128, 168)) drop-shadow(0 0 1px rgb(19, 128, 168));
 }
