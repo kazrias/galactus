@@ -141,8 +141,11 @@
 
 @media (max-width: 530px) {
   .products-item__link {
-    width: 210px;
-    height: 230px;
+    width: 290px;
+    height: 330px;
+  }
+  .products-item__info {
+    width: 290px;
   }
 
   .products-item__info {
