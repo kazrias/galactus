@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { Background } from "./components/Background/Background";
 import { Header } from "./components/Header/Header";
-import { Screen } from "./components/Screen/Screen";
 import { Cart } from "./components/Cart/Cart";
 import { Home } from "./Pages/Home";
-import { Orders } from "./Pages/Orders";
+import { OrdersPage } from "./Pages/OrdersPage";
 import { Route, Routes } from 'react-router-dom'
 import './app.css'
 const App = () => {
@@ -61,11 +60,11 @@ const App = () => {
 
   return (
     <>
-      <Background/>
+      <Background />
       <Header total={total} onClickCart={onClickCart} cartCount={cartCount} />
       <Routes>
-        <Route path='/' element={<Home setCartItems={setCartItems} cartItems={cartItems} />} />
-        <Route path='/orders' element={<Orders />} />
+        <Route path='/' element={<Home path={'home'} setCartItems={setCartItems} cartItems={cartItems} />} />
+        <Route path='/orders' element={<OrdersPage path={'orders'} setCartItems={setCartItems} cartItems={cartItems} items={orders} />} />
       </Routes>
       {isCartOpened && <Cart onClickOrder={onClickOrder} total={total} onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
     </>
