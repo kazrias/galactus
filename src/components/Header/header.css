@@ -23,7 +23,7 @@
 
 .header-logo {
   height: 100%;
-  filter: drop-shadow(0px -6px 10px rgb(19, 128, 168)) drop-shadow(0 0 30px rgb(19, 128, 168));
+  /* filter: drop-shadow(0px -6px 10px rgb(19, 128, 168)) drop-shadow(0 0 30px rgb(19, 128, 168)); */
 }
 
 .header-link span {
