@@ -743,6 +743,31 @@
   margin-left: 10px;
 }
 .ufo-text:first-child{
-
   margin-top: 120px;
+}
+
+@media (max-height: 900px){
+  .ufo-contain{
+    margin-top: 0;
+  }
+}
+
+@media (max-height: 800px){
+  .ufo-contain{
+    margin-top: 50px;
+  }
+}
+
+@media (max-height: 650px){
+  .ufo-contain{
+    margin-top: 100px;
+  }
+}
+
+
+@media (max-height: 580px){
+  .ufo-text:first-child{
+    margin-top: 80px;
+  }
+  
 }
