@@ -1,7 +1,9 @@
 .list {
   padding: 95px 0;
 }
-
+.container--list{
+  width: fit-content;
+}
 .list-title {
   text-transform: uppercase;
   text-align: center;

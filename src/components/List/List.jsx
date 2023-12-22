@@ -12,7 +12,7 @@ export const List = ({ onClickClearOrders, path, items }) => {
   return (<>
     <section className="list">
       <h2 className="list-title">{path}</h2>
-      <div className="container container--info container--list">
+      <div className={`container container--info ${items.length?'container--list':''}`}>
         <div className="list-wrapper">
           {items.length ? <>
             <Products path={path} items={items} />
