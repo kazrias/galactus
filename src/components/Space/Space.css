@@ -251,7 +251,7 @@
   border-bottom-right-radius: 100%;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .space span:nth-child(1) {
     animation: none;
   }
@@ -263,4 +263,4 @@
   .space span:nth-child(3) {
     animation: none;
   }
-}
+} */
