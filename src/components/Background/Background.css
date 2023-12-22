@@ -16,13 +16,17 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: #ff0000;
-  /* background-color: #8000ff; */
+  background-color: #f47272;
+  /* background-color: #3cc4d9; */
   opacity: 0.13;
   z-index: 10;
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.bg.active::after {
+  background-color: #3cc4d9;
 }
 
 .bg:before {

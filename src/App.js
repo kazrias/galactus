@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Background } from "./components/Background/Background";
 import { Header } from "./components/Header/Header";
 import { Screen } from "./components/Screen/Screen";
-import { Info } from "./components/Info/Info";
 import { Cart } from "./components/Cart/Cart";
-
+import { Home } from "./Pages/Home";
+import { Orders } from "./Pages/Orders";
+import { Route, Routes } from 'react-router-dom'
 import './app.css'
 const App = () => {
   const [cartItems, setCartItems] = useState([])
@@ -42,7 +43,7 @@ const App = () => {
       setOrders([...JSON.parse(localOrdersData)])
     }
   }, [])
-  
+
   useEffect(() => {
     setCartCount(cartItems.length)
     setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
@@ -60,10 +61,12 @@ const App = () => {
 
   return (
     <>
-      <Background />
+      <Background/>
       <Header total={total} onClickCart={onClickCart} cartCount={cartCount} />
-      <Screen />
-      <Info setCartItems={setCartItems} cartItems={cartItems} />
+      <Routes>
+        <Route path='/' element={<Home setCartItems={setCartItems} cartItems={cartItems} />} />
+        <Route path='/orders' element={<Orders />} />
+      </Routes>
       {isCartOpened && <Cart onClickOrder={onClickOrder} total={total} onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
     </>
   )
