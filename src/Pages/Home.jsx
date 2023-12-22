@@ -5,6 +5,5 @@ export const Home = ({ path,setCartItems, cartItems }) => {
     <Screen />
     <Info path={path} setCartItems={setCartItems} cartItems={cartItems} />
   </>
-
   )
 }

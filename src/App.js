@@ -6,6 +6,7 @@ import { Cart } from "./components/Cart/Cart";
 import { Home } from "./Pages/Home";
 import { OrdersPage } from "./Pages/OrdersPage";
 import { Route, Routes } from 'react-router-dom'
+import { NotFound } from "./Pages/NotFound";
 import './app.css'
 const App = () => {
   const [cartItems, setCartItems] = useState([])
@@ -72,6 +73,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home path={'home'} setCartItems={setCartItems} cartItems={cartItems} />} />
         <Route path='/orders' element={<OrdersPage onClickClearOrders={onClickClearOrders} path={'orders'} setCartItems={setCartItems} cartItems={cartItems} items={orders} />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       {isCartOpened && <Cart onClickOrder={onClickOrder} total={total} onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
     </>
