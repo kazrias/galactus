@@ -23,6 +23,7 @@
 
 .header-logo {
   height: 100%;
+  filter: drop-shadow(0px -6px 10px rgb(19, 128, 168)) drop-shadow(0 0 30px rgb(19, 128, 168));
 }
 
 .header-link span {
@@ -33,20 +34,24 @@
     0 0 1em rgb(19, 128, 168),
     0 0 0.2em rgb(19, 128, 168);
 }
-.header-total{
+
+.header-total {
   font-family: "Poppins";
   color: #fff;
   width: 70px;
   text-align: right;
 }
+
 .header-btns {
   display: flex;
   gap: 20px;
 }
-.header-orders{
+
+.header-orders {
   font-family: "Poppins";
   color: #fff;
 }
+
 .header-btn {
   background-color: transparent;
   border: none;

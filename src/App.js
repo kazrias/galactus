@@ -39,9 +39,6 @@ const App = () => {
     const localCartData = localStorage.getItem('cartItems');
     const localOrdersData = localStorage.getItem('orders');
     const localFavoritesData = localStorage.getItem('favorites');
-    console.log(localCartData,'cart');
-    console.log(localOrdersData,'order');
-    console.log(localFavoritesData,'favs');
     if (localCartData !== null) {
       setCartItems([...JSON.parse(localCartData)])
     }

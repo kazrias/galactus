@@ -4,7 +4,6 @@ import { CartItem } from '../CartItem/CartItem';
 import { Space } from '../Space/Space';
 import { Total } from '../Total/Total';
 export const Cart = ({ total,onClickOverlay, isCartClosing, isCartOpened, setCartItems, cartItems = [] ,onClickOrder }) => {
-  console.log('cart render');
   return (
     isCartOpened && <div className="cart-wrapper">
       <div onClick={onClickOverlay} className={`overlay ${isCartClosing ? 'closing' : ''}`} ></div >
