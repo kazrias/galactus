@@ -14,7 +14,9 @@ export const Header = ({ total, onClickCart, cartCount }) => {
       </Link>
       <div className="header-btns">
         <Link to='/orders' className="header-orders">Orders</Link>
-        <FavBtn />
+        <Link to='/favorites'>
+          <FavBtn />
+        </Link>
         <CartBtn total={total} onClickCart={onClickCart} cartCount={cartCount} />
       </div>
     </header>

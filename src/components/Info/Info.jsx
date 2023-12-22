@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Products } from '../Products/Products';
 import axios from 'axios';
 
-export const Info = ({ setCartItems, cartItems, path }) => {
+export const Info = ({ setFavorites,favorites,setCartItems, cartItems, path }) => {
   // console.log('cartItems',cartItems);
   const [products, setProducts] = useState([]);
   const [currCategory, setCurrCategory] = useState('Clothes')
@@ -29,7 +29,7 @@ export const Info = ({ setCartItems, cartItems, path }) => {
       <div className="container container--info">
         <Categories currCategory={currCategory} setCurrCategory={setCurrCategory} />
         {/* <h1 className="info-title">{currCategory}</h1> */}
-        <Products path={path} isLoading={isLoading} setCartItems={setCartItems} cartItems={cartItems} items={products} />
+        <Products path={path} isLoading={isLoading} setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} items={products} />
       </div>
     </section>
   )

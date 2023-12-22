@@ -5,6 +5,7 @@ import { Header } from "./components/Header/Header";
 import { Cart } from "./components/Cart/Cart";
 import { Home } from "./Pages/Home";
 import { OrdersPage } from "./Pages/OrdersPage";
+import { FavoritesPage } from "./Pages/FavoritesPage";
 import { Route, Routes } from 'react-router-dom'
 import { NotFound } from "./Pages/NotFound";
 import './app.css'
@@ -15,6 +16,7 @@ const App = () => {
   const [cartCount, setCartCount] = useState(0);
   const [total, setTotal] = useState(0);
   const [orders, setOrders] = useState([])
+  const [favorites, setFavorites] = useState([])
   const onClickOverlay = () => {
     setIsCartClosing(true);
     setTimeout(() => {
@@ -36,11 +38,18 @@ const App = () => {
   useEffect(() => {
     const localCartData = localStorage.getItem('cartItems');
     const localOrdersData = localStorage.getItem('orders');
+    const localFavoritesData = localStorage.getItem('favorites');
+    console.log(localCartData,'cart');
+    console.log(localOrdersData,'order');
+    console.log(localFavoritesData,'favs');
     if (localCartData !== null) {
       setCartItems([...JSON.parse(localCartData)])
     }
     if (localOrdersData !== null) {
       setOrders([...JSON.parse(localOrdersData)])
+    }
+    if (localFavoritesData !== null) {
+      setFavorites([...JSON.parse(localFavoritesData)])
     }
   }, [])
 
@@ -49,6 +58,10 @@ const App = () => {
     setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems])
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites])
 
   const onClickOrder = () => {
     setOrders((prev) => {
@@ -65,14 +78,22 @@ const App = () => {
     }
     );
   }
+  const onClickClearFavorites = () => {
+    setFavorites(() => {
+      localStorage.setItem('favorites', JSON.stringify([]));
+      return []
+    }
+    );
+  }
 
   return (
     <>
       <Background />
       <Header total={total} onClickCart={onClickCart} cartCount={cartCount} />
       <Routes>
-        <Route path='/' element={<Home path={'home'} setCartItems={setCartItems} cartItems={cartItems} />} />
-        <Route path='/orders' element={<OrdersPage onClickClearOrders={onClickClearOrders} path={'orders'} setCartItems={setCartItems} cartItems={cartItems} items={orders} />} />
+        <Route path='/' element={<Home path={'home'} setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} />} />
+        <Route path='/orders' element={<OrdersPage onClickClearOrders={onClickClearOrders} path={'orders'} items={orders} />} />
+        <Route path='/favorites' element={<FavoritesPage favorites={favorites} setFavorites={setFavorites} cartItems={cartItems} setCartItems={setCartItems} onClickClearFavorites={onClickClearFavorites} onClickClearOrders={onClickClearOrders} path={'favorites'} items={favorites} />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       {isCartOpened && <Cart onClickOrder={onClickOrder} total={total} onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
