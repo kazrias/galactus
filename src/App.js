@@ -28,17 +28,23 @@ const App = () => {
     if (isCartOpened) {
       setIsCartClosing(true);
       setTimeout(() => {
-        setIsCartOpened((prev) => !prev);
+        setIsCartOpened(false);
       }, 500)
       document.body.style.overflow = '';
     }
     else {
       setIsCartClosing(false);
-      setIsCartOpened((prev) => !prev);
+      setIsCartOpened(true);
       if (window.innerWidth <= 530) {
         document.body.style.overflow = 'hidden';
       }
     }
+  }
+
+  const onClickAnyList = () => {
+    onClickOverlay()
+    document.body.style.overflow = '';
+
   }
   useEffect(() => {
     const localCartData = localStorage.getItem('cartItems');
@@ -90,7 +96,7 @@ const App = () => {
 
   return (
     <>
-      <Header onClickOverlay={onClickOverlay} total={total} onClickCart={onClickCart} cartCount={cartCount} />
+      <Header onClickOverlay={onClickOverlay} onClickCart={onClickCart} total={total} onClickAnyList={onClickAnyList} cartCount={cartCount} />
       <Routes>
         <Route path='/' element={<Home path={'home'} setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} />} />
         <Route path='/orders' element={<OrdersPage onClickClearOrders={onClickClearOrders} path={'orders'} items={orders} />} />

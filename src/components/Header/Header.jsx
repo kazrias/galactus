@@ -3,10 +3,11 @@ import logo from '../../images/logo.png'
 import { CartBtn } from '../CartBtn/CartBtn'
 import { FavBtn } from '../FavBtn/FavBtn'
 import { Link } from 'react-router-dom'
-export const Header = ({ onClickOverlay, total, onClickCart, cartCount }) => {
+export const Header = ({ onClickOverlay, total, onClickAnyList, cartCount, onClickCart }) => {
 
   const onClickList = () => {
-    onClickCart()
+    onClickAnyList()
+    console.log('changed');
     onClickOverlay()
   }
   return (
