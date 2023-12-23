@@ -23,6 +23,7 @@
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 100;
 }
 
 .overlay {
@@ -57,6 +58,7 @@
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   will-change: transform;
+
 }
 
 .cart-items {
