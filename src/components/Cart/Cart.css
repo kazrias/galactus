@@ -51,6 +51,12 @@
   animation: rightToLeft .5s forwards;
   padding-bottom: 100px;
   overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 .cart-items {
@@ -63,6 +69,12 @@
   width: 100%;
   align-items: center;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 .overlay.closing {
