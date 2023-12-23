@@ -50,5 +50,6 @@ a {
   max-width: 1150px;
   padding: 0 15px;
   margin: 0 auto;
+  position: relative;
   /* border: 1px solid rgba(160, 96, 158, 0.3); */
 }
