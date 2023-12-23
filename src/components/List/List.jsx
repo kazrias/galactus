@@ -15,7 +15,7 @@ export const List = ({ favorites, setFavorites, cartItems, setCartItems, onClick
   return (<>
     <section className="list">
       <h2 className="list-title">{path}</h2>
-      <div className={`container container--info container--list${items.length ? 'container--list-fit' : ''}`}>
+      <div className={`container container--info container--list ${!items.length ? 'container--list-fit' : ''}`}>
         <div className="list-wrapper">
           {items.length ? <>
             <Products setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} path={path} items={items} />
