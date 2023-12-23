@@ -17,6 +17,7 @@ const App = () => {
   const [total, setTotal] = useState(0);
   const [orders, setOrders] = useState([])
   const [favorites, setFavorites] = useState([])
+
   const onClickOverlay = () => {
     setIsCartClosing(true);
     setTimeout(() => {
@@ -29,10 +30,14 @@ const App = () => {
       setTimeout(() => {
         setIsCartOpened((prev) => !prev);
       }, 500)
+      document.body.style.overflow = '';
     }
     else {
       setIsCartClosing(false);
       setIsCartOpened((prev) => !prev);
+      if (window.innerWidth <= 530) {
+        document.body.style.overflow = 'hidden';
+      }
     }
   }
   useEffect(() => {
