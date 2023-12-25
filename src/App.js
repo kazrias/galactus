@@ -18,7 +18,7 @@ const App = () => {
   const [total, setTotal] = useState(0);
   const [orders, setOrders] = useState([])
   const [favorites, setFavorites] = useState([])
-
+  console.log('app');
   const onClickOverlay = () => {
     setIsCartClosing(true);
     setTimeout(() => {
@@ -62,11 +62,11 @@ const App = () => {
     }
   }, [])
 
-  useEffect(() => {
-    setCartCount(cartItems.length)
-    setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems])
+    useEffect(() => {
+      setCartCount(cartItems.length)
+      setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems])
 
   useLocalStorage(favorites);
   const onClickOrder = () => {
