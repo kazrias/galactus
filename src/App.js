@@ -8,6 +8,7 @@ import { OrdersPage } from "./Pages/OrdersPage";
 import { FavoritesPage } from "./Pages/FavoritesPage";
 import { Route, Routes } from 'react-router-dom'
 import { NotFound } from "./Pages/NotFound";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import './app.css'
 const App = () => {
   const [cartItems, setCartItems] = useState([])
@@ -67,10 +68,7 @@ const App = () => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems])
 
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites])
-
+  useLocalStorage(favorites);
   const onClickOrder = () => {
     setOrders((prev) => {
       localStorage.setItem('orders', JSON.stringify([...prev, ...cartItems]));
