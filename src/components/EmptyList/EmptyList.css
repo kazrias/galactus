@@ -19,6 +19,7 @@
   text-shadow: 0px 0px 10px #00ccff;
   max-width: 600px;
   width: 100%;
+  /* padding: 0 15px; */
 }
 
 .emptyList-text--back {
@@ -36,6 +37,10 @@
 @media (max-width: 670px) {
   .emptyList-img {
     width: 500px;
+  }
+
+  .emptyList-text {
+    font-size: 30px;
   }
 }
 
@@ -62,7 +67,7 @@
 
 @media (max-width: 410px) {
   .emptyList-text {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .emptyList-img {
