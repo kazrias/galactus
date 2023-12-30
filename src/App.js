@@ -8,6 +8,7 @@ import { OrdersPage } from "./Pages/OrdersPage";
 import { FavoritesPage } from "./Pages/FavoritesPage";
 import { Route, Routes } from 'react-router-dom'
 import { NotFound } from "./Pages/NotFound";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import './app.css'
 const App = () => {
   const [cartItems, setCartItems] = useState([])
@@ -17,7 +18,7 @@ const App = () => {
   const [total, setTotal] = useState(0);
   const [orders, setOrders] = useState([])
   const [favorites, setFavorites] = useState([])
-
+  console.log('app');
   const onClickOverlay = () => {
     setIsCartClosing(true);
     setTimeout(() => {
@@ -61,16 +62,13 @@ const App = () => {
     }
   }, [])
 
-  useEffect(() => {
-    setCartCount(cartItems.length)
-    setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems])
+    useEffect(() => {
+      setCartCount(cartItems.length)
+      setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems])
 
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites])
-
+  useLocalStorage(favorites);
   const onClickOrder = () => {
     setOrders((prev) => {
       localStorage.setItem('orders', JSON.stringify([...prev, ...cartItems]));

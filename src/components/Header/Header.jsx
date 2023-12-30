@@ -7,7 +7,6 @@ export const Header = ({ onClickOverlay, total, onClickAnyList, cartCount, onCli
 
   const onClickList = () => {
     onClickAnyList()
-    console.log('changed');
     onClickOverlay()
   }
   return (
