@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const useLocalStorage = (favorites) => {
+export const useFavorites = (favorites) => {
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites])

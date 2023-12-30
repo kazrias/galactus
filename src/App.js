@@ -8,17 +8,20 @@ import { OrdersPage } from "./Pages/OrdersPage";
 import { FavoritesPage } from "./Pages/FavoritesPage";
 import { Route, Routes } from 'react-router-dom'
 import { NotFound } from "./Pages/NotFound";
-import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useLocalStorageData } from "./hooks/useLocalStorageData";
 import './app.css'
+
+import { useFavorites } from "./hooks/useFavorites";
+import { useCartItems } from "./hooks/useCartItems";
+import { useOrders } from "./hooks/useOrders";
 const App = () => {
   const [cartItems, setCartItems] = useState([])
+  const [orders, setOrders] = useState([])
+  const [favorites, setFavorites] = useState([])
   const [isCartOpened, setIsCartOpened] = useState(false);
   const [isCartClosing, setIsCartClosing] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [total, setTotal] = useState(0);
-  const [orders, setOrders] = useState([])
-  const [favorites, setFavorites] = useState([])
-  console.log('app');
   const onClickOverlay = () => {
     setIsCartClosing(true);
     setTimeout(() => {
@@ -52,23 +55,21 @@ const App = () => {
     const localOrdersData = localStorage.getItem('orders');
     const localFavoritesData = localStorage.getItem('favorites');
     if (localCartData !== null) {
-      setCartItems([...JSON.parse(localCartData)])
+      setCartItems(JSON.parse(localCartData))
     }
     if (localOrdersData !== null) {
-      setOrders([...JSON.parse(localOrdersData)])
+      setOrders(JSON.parse(localOrdersData))
     }
     if (localFavoritesData !== null) {
-      setFavorites([...JSON.parse(localFavoritesData)])
+      setFavorites(JSON.parse(localFavoritesData))
     }
   }, [])
 
-    useEffect(() => {
-      setCartCount(cartItems.length)
-      setTotal(+(cartItems.reduce((curr, { price }) => curr + price, 0)).toFixed(1))
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    }, [cartItems])
 
-  useLocalStorage(favorites);
+  useLocalStorageData(['cartItems', 'orders', 'favorites'], { 'cartItems': setCartItems, 'orders': setOrders, 'favorites': setFavorites })
+  useCartItems(cartItems, setCartCount, setTotal)
+  useFavorites(favorites);
+  useOrders(orders);
   const onClickOrder = () => {
     setOrders((prev) => {
       localStorage.setItem('orders', JSON.stringify([...prev, ...cartItems]));
