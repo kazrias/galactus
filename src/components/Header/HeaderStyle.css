@@ -78,6 +78,7 @@
   }
 }
 
+
 @media (max-width: 570px) {
   .header {
     padding: 0 15px;
@@ -92,12 +93,21 @@
   .header-link span {
     font-size: 20px;
   }
-  .header-orders{
+
+  .header-orders {
     font-size: 14px;
 
   }
-  .header-total{
+
+  .header-total {
     font-size: 14px;
     width: 60px;
+  }
+}
+
+
+@media (max-width:440px) {
+  .header-link span {
+    display: none;
   }
 }
