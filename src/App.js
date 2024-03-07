@@ -60,8 +60,7 @@ const App = () => {
     document.body.style.overflow = '';
 
   }
-
-
+  
   const onClickOrder = () => {
     setOrders((prev) => {
       localStorage.setItem('orders', JSON.stringify([...prev, ...cartItems]));
@@ -70,6 +69,7 @@ const App = () => {
     );
     setCartItems([]);
   }
+
   const onClickClearOrders = () => {
     setOrders(() => {
       localStorage.setItem('orders', JSON.stringify([]));
@@ -77,6 +77,7 @@ const App = () => {
     }
     );
   }
+
   const onClickClearFavorites = () => {
     setFavorites(() => {
       localStorage.setItem('favorites', JSON.stringify([]));
