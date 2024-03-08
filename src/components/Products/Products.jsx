@@ -2,14 +2,14 @@ import './Products.css'
 import { Product } from "../Product/Product"
 import { OrderProduct } from '../OrderProduct/OrderProduct'
 import { useSelector } from 'react-redux'
-export const Products = ({ }) => {
+export const Products = ({ isLoading }) => {
   const path = useSelector(state => state.app.path)
-  console.log(path);
+  const products = useSelector(state => state.app.products)
   const renderItems = () => {
     switch (path) {
       case 'home':
-        return (isLoading ? [...Array(8)] : items).map((obj, index) => (
-          <Product />
+        return (isLoading ? [...Array(8)] : products).map((obj, index) => (
+          <Product isLoading={isLoading} {...obj} />
         ))
       case 'orders':
         return items.map((obj, index) => (

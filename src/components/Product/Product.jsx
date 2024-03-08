@@ -5,47 +5,13 @@ import added from '../../images/added.svg'
 import like from '../../images/liked.svg'
 import unlike from '../../images/unliked.svg'
 import Sceleton from '../Sceleton/Sceleton'
-export const Product = ({  }) => {
+export const Product = ({ isLoading, id, name, price, images }) => {
   const [isHoveredSecond, setIsHoveredSecond] = useState(false);
   const [isHoveredThird, setIsHoveredThird] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
-
-  useEffect(() => {
-    setIsAdded(cartItems.some(item => {
-      return Number(item.id) === Number(id)
-    }));
-  }, [isLoading, cartItems])
-
-  useEffect(() => {
-    setIsLiked(favorites.some(item => {
-      return Number(item.id) === Number(id)
-    }));
-  }, [isLoading, favorites])
-
-  const onClickLike = (product) => {
-    if (isLiked) {
-      setFavorites((prev) => prev.filter(item => Number(item.id) !== Number(product.id)));
-    }
-    else {
-      setFavorites((prev) => { return [...prev, product] })
-    }
-    setIsLiked((prev) => !prev)
-
-  }
-
-  const onClickAdd = (product) => {
-    if (isAdded) {
-      setCartItems((prev) => prev.filter(item => Number(item.id) !== Number(product.id)));
-    }
-    else {
-      setCartItems((prev) => [...prev, product])
-    }
-    setIsAdded((prev) => !prev)
-  }
-
   return (<>
-    { 
+    {
       isLoading ? <Sceleton /> : <div className="products-item">
         <div className="products-item__link">
           <img className='products-item__img' src={isHoveredSecond ? images.second : isHoveredThird ? images.third : images.first} alt="" />

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   path: 'home',
+  products: [],
 }
 
 export const appSlice = createSlice({
@@ -10,9 +11,13 @@ export const appSlice = createSlice({
   reducers: {
     changePath: (state, action) => {
       state.path = action.payload.path;
+    },
+    addProducts: (state, action) => {
+      state.products = action.payload.products;
     }
+
   }
 
 })
-export const { changePath } = appSlice.actions;
+export const { changePath, addProducts } = appSlice.actions;
 export default appSlice.reducer
