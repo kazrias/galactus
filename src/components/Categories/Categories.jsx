@@ -18,12 +18,12 @@ const btns = [
     'type': 'Beauty',
   },
 ]
-export const Categories = ({ currCategory, setCurrCategory }) => (
+export const Categories = ({}) => (
   <div className="categories">
     <div className="categories-btns">
       {
         btns.map(({ id, type }) => (
-          <CtBtn key={id} type={type} currCategory={currCategory} setCurrCategory={setCurrCategory} />
+          <CtBtn key={id} type={type} />
         ))
       }
     </div>

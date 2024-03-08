@@ -5,7 +5,7 @@ import added from '../../images/added.svg'
 import like from '../../images/liked.svg'
 import unlike from '../../images/unliked.svg'
 import Sceleton from '../Sceleton/Sceleton'
-export const Product = ({ isLoading, setFavorites, favorites=[], setCartItems, cartItems=[], id, name, price, images }) => {
+export const Product = ({  }) => {
   const [isHoveredSecond, setIsHoveredSecond] = useState(false);
   const [isHoveredThird, setIsHoveredThird] = useState(false);
   const [isAdded, setIsAdded] = useState(false);

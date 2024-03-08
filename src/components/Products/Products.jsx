@@ -1,20 +1,23 @@
 import './Products.css'
 import { Product } from "../Product/Product"
 import { OrderProduct } from '../OrderProduct/OrderProduct'
-export const Products = ({ path, setFavorites,favorites, isLoading, setCartItems, cartItems = [], items = [] }) => {
-  const renderItems = (path) => {
+import { useSelector } from 'react-redux'
+export const Products = ({ }) => {
+  const path = useSelector(state => state.app.path)
+  console.log(path);
+  const renderItems = () => {
     switch (path) {
       case 'home':
         return (isLoading ? [...Array(8)] : items).map((obj, index) => (
-          <Product isLoading={isLoading} setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} key={isLoading ? index : obj.id} {...obj} />
+          <Product />
         ))
       case 'orders':
         return items.map((obj, index) => (
-          <OrderProduct key={index} {...obj} />
+          <OrderProduct key={index} />
         ))
       case 'favorites':
         return items.map((obj, index) => (
-          <Product setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} key={obj.id} {...obj} />
+          <Product />
         ))
     }
 

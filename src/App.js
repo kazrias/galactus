@@ -18,18 +18,9 @@ import { useOrders } from "./hooks/useOrders";
 import './app.css'
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([])
-  const [orders, setOrders] = useState([])
-  const [favorites, setFavorites] = useState([])
   const [isCartOpened, setIsCartOpened] = useState(false);
   const [isCartClosing, setIsCartClosing] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
-  const [total, setTotal] = useState(0);
 
-  useLocalStorageData(['cartItems', 'orders', 'favorites'], { 'cartItems': setCartItems, 'orders': setOrders, 'favorites': setFavorites })
-  useCartItems(cartItems, setCartCount, setTotal)
-  useFavorites(favorites);
-  useOrders(orders);
 
   const onClickOverlay = () => {
     setIsCartClosing(true);
@@ -58,44 +49,19 @@ const App = () => {
   const onClickAnyList = () => {
     onClickOverlay()
     document.body.style.overflow = '';
-
-  }
-  
-  const onClickOrder = () => {
-    setOrders((prev) => {
-      localStorage.setItem('orders', JSON.stringify([...prev, ...cartItems]));
-      return [...prev, ...cartItems]
-    }
-    );
-    setCartItems([]);
   }
 
-  const onClickClearOrders = () => {
-    setOrders(() => {
-      localStorage.setItem('orders', JSON.stringify([]));
-      return []
-    }
-    );
-  }
-
-  const onClickClearFavorites = () => {
-    setFavorites(() => {
-      localStorage.setItem('favorites', JSON.stringify([]));
-      return []
-    }
-    );
-  }
 
   return (
     <>
-      <Header onClickOverlay={onClickOverlay} onClickCart={onClickCart} total={total} onClickAnyList={onClickAnyList} cartCount={cartCount} />
+      <Header onClickOverlay={onClickOverlay} onClickCart={onClickCart} onClickAnyList={onClickAnyList} />
       <Routes>
-        <Route path='/' element={<Home path={'home'} setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} />} />
-        <Route path='/orders' element={<OrdersPage onClickClearOrders={onClickClearOrders} path={'orders'} items={orders} />} />
-        <Route path='/favorites' element={<FavoritesPage favorites={favorites} setFavorites={setFavorites} cartItems={cartItems} setCartItems={setCartItems} onClickClearFavorites={onClickClearFavorites} onClickClearOrders={onClickClearOrders} path={'favorites'} items={favorites} />} />
+        <Route path='/' element={<Home  />} />
+        <Route path='/orders' element={<OrdersPage />} />
+        <Route path='/favorites' element={<FavoritesPage  />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      {isCartOpened && <Cart onClickOrder={onClickOrder} total={total} onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} setCartItems={setCartItems} cartItems={cartItems} />}
+      {isCartOpened && <Cart onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} />}
       <Background />
     </>
   )

@@ -1,12 +1,12 @@
 import { useState } from 'react'
-export const OrderProduct = ({ id, name, price, images }) => {
+export const OrderProduct = ({}) => {
   const [isHoveredSecond, setIsHoveredSecond] = useState(false);
   const [isHoveredThird, setIsHoveredThird] = useState(false);
   return (<>
     {
       <div className="products-item">
         <div className="products-item__link">
-          <img className='products-item__img' src={isHoveredSecond ? images.second : isHoveredThird ? images.third : images.first} alt="" />
+          <img className='products-item__img'  alt="" />
           <div onMouseEnter={() => setIsHoveredSecond(true)} onMouseLeave={() => setIsHoveredSecond(false)} className='products-item__hidden products-item__hidden--secondImg'></div>
           <div onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} className='products-item__hidden products-item__hidden--thirdImg'></div>
         </div>
