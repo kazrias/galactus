@@ -45,9 +45,13 @@ export const Product = ({ isLoading, id, name, price, images }) => {
       {
         isLoading ? <Sceleton /> : <div className="products-item">
           <div className="products-item__link">
-            <img className='products-item__img' src={isHoveredSecond ? images.second : isHoveredThird ? images.third : images.first} alt="" />
-            <div onMouseEnter={() => setIsHoveredSecond(true)} onMouseLeave={() => setIsHoveredSecond(false)} className='products-item__hidden products-item__hidden--secondImg'></div>
-            <div onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} className='products-item__hidden products-item__hidden--thirdImg'></div>
+            <img className='products-item__img products-item__img--first' src={images.first} alt="" />
+            <div className='products-item__hidden products-item__hidden--secondImg'></div>
+            <img className='products-item__img products-item__img--second' src={images.second} alt="" />
+            <div className='products-item__hidden products-item__hidden--thirdImg'></div>
+            <img className='products-item__img products-item__img--third' src={images.third} alt="" />
+
+
             <button onClick={onClickLike} onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} className={`products-item__like ${isLiked ? 'active' : ''}`} > <img src={isLiked ? like : unlike} alt="like/dislike" /></button>
           </div>
           <div className="products-item__info">
