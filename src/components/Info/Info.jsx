@@ -4,14 +4,13 @@ import { useState, useEffect } from 'react';
 import { Products } from '../Products/Products';
 
 import { fetchCategory } from '../../services/fetchCategory';
-import {  useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { addProducts } from '../../store/slices/appSlice';
 
 export const Info = ({ }) => {
   const dispatch = useDispatch()
-
-  const [currCategory, setCurrCategory] = useState('Clothes')
+  const currCategory = useSelector(state => state.app.category)
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     async function fetchData() {
@@ -26,7 +25,7 @@ export const Info = ({ }) => {
   return (
     <section className="info">
       <div className="container container--info">
-        <Categories currCategory={currCategory} setCurrCategory={setCurrCategory} />
+        <Categories />
         <Products isLoading={isLoading} />
       </div>
     </section>
