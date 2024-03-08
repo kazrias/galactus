@@ -6,11 +6,11 @@ export const Products = ({ isLoading }) => {
   const path = useSelector(state => state.app.path)
   const products = useSelector(state => state.app.products)
   const renderItems = () => {
-    const items=[]
+    const items = []
     switch (path) {
       case 'home':
         return (isLoading ? [...Array(8)] : products).map((obj, index) => (
-          <Product isLoading={isLoading} {...obj} />
+          <Product key={isLoading ? index : obj.id}   isLoading={isLoading} {...obj} />
         ))
       case 'orders':
         return items.map((obj, index) => (
