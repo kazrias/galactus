@@ -6,6 +6,7 @@ export const Products = ({ isLoading }) => {
   const path = useSelector(state => state.app.path)
   const products = useSelector(state => state.app.products)
   const renderItems = () => {
+    const items=[]
     switch (path) {
       case 'home':
         return (isLoading ? [...Array(8)] : products).map((obj, index) => (
