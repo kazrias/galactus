@@ -2,6 +2,7 @@ import './Products.css'
 import { Product } from "../Product/Product"
 import { OrderProduct } from '../OrderProduct/OrderProduct'
 export const Products = ({ path, setFavorites,favorites, isLoading, setCartItems, cartItems = [], items = [] }) => {
+  console.log('');
   const renderItems = (path) => {
     switch (path) {
       case 'home':
