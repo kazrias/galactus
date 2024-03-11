@@ -50,8 +50,6 @@ export const Product = ({ isLoading, id, name, price, images }) => {
             <img className='products-item__img products-item__img--second' src={images.second} alt="" />
             <div className='products-item__hidden products-item__hidden--thirdImg'></div>
             <img className='products-item__img products-item__img--third' src={images.third} alt="" />
-
-
             <button onClick={onClickLike} onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} className={`products-item__like ${isLiked ? 'active' : ''}`} > <img src={isLiked ? like : unlike} alt="like/dislike" /></button>
           </div>
           <div className="products-item__info">

@@ -7,7 +7,7 @@ import { Home } from "./Pages/Home";
 import { OrdersPage } from "./Pages/OrdersPage";
 import { FavoritesPage } from "./Pages/FavoritesPage";
 import { NotFound } from "./Pages/NotFound";
-import { useLocalStorageData } from "./hooks/useLocalStorageData";
+import Login from './Pages/Login/Login'
 
 import { Route, Routes } from 'react-router-dom'
 
@@ -59,7 +59,11 @@ const App = () => {
         <Route path='/' element={<Home  />} />
         <Route path='/orders' element={<OrdersPage />} />
         <Route path='/favorites' element={<FavoritesPage  />} />
+        <Route path='/login' element={<Login  />} />
+
         <Route path='*' element={<NotFound />} />
+        
+        
       </Routes>
       {isCartOpened && <Cart onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} />}
       <Background />
