@@ -13,10 +13,12 @@ const Login = () => {
           <button onClick={() => setSignUpClicked(true)}>Sign Up</button>
           <div className={`form-login__btns-active ${signUpClicked ? 'signUp' : ''}`}></div>
         </div>
-        {/* {signUpClicked && <SignIn />} */}
-        <SignUp />
+        <div className={`login-wrapper ${signUpClicked ? 'active' : ''}`}>
+          <SignIn />
+          <SignUp />
+        </div>
       </div>
-    </div>
+    </div >
   )
 }
 

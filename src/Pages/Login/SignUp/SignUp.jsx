@@ -67,8 +67,8 @@ export const SignUp = () => {
             value={values.confirmPassword}
             placeholder="Confirm password" />
           {errors.confirmPassword && touched.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
-        </label>
-        <button disabled={isSubmitting} type="submit" className="register-signUp">Register</button>
+        </label>  
+        <button disabled={isSubmitting} type="submit" className="register-signUp">Sign Up</button>
       </form>
     </>
   )
