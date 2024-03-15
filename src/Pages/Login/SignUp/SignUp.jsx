@@ -1,27 +1,74 @@
 import { useState } from "react"
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../../config/firebaseConfig'
+import { useFormik } from "formik"
+import { basicSchema } from "../../../schemas"
 export const SignUp = () => {
-  const [email, setEmail] = useState('')
-  const [pass, setPass] = useState('')
-  const signUpUser = (e) => {
-    e.preventDefault()
-    createUserWithEmailAndPassword(auth, email, pass)
+
+
+
+  const onSubmit = async (values, actions) => {
+    await createUserWithEmailAndPassword(auth, values.email, values.password)
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
       });
-    setEmail('')
-    setPass('')
+
+    actions.resetForm()
   }
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit, isSubmitting } = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+      confirmPassword: '',
+    },
+    validationSchema: basicSchema,
+    onSubmit,
+  })
+
+
   return (
     <>
-      <h3 className="title title-signUp">Sign Up</h3>
-      <form onSubmit={signUpUser} className="login-signUp">
-        <label><input onChange={(e) => setEmail(e.target.value)} className="login-email" type="email" value={email} placeholder="Email" /></label>
-        <label><input onChange={(e) => setPass(e.target.value)} className='login-pass' type="password" value={pass} placeholder="Password" /></label>
-        <button className="register-signUp">Register</button>
+      <form onSubmit={handleSubmit} className="login-signUp">
+        <label className="login-label">
+          <input
+            autoComplete="off"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`login-email ${errors.email && touched.email ? "input-error" : ''}`}
+            type="email"
+            id="email"
+            value={values.email}
+            placeholder="Email" />
+          {errors.email && touched.email && <span className="error">{errors.email}</span>}
+        </label>
+        <label className="login-label">
+          <input
+            autoComplete="off"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`login-pass ${errors.password && touched.password ? "input-error" : ''}`}
+            type="password"
+            id="password"
+            value={values.password}
+            placeholder="Password" />
+          {errors.password && touched.password && <span className="error">{errors.password}</span>}
+        </label>
+        <label className="login-label">
+          <input
+            autoComplete="off"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`login-pass ${errors.confirmPassword && touched.confirmPassword ? "input-error" : ''}`}
+            type="password"
+            id="confirmPassword"
+            value={values.confirmPassword}
+            placeholder="Confirm password" />
+          {errors.confirmPassword && touched.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
+        </label>
+        <button disabled={isSubmitting} type="submit" className="register-signUp">Register</button>
       </form>
     </>
   )

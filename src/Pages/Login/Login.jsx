@@ -8,8 +8,13 @@ const Login = () => {
   return (
     <div className='login'>
       <div className="form-login">
-        {signUpClicked && <SignIn />}
-        {!signUpClicked && <SignUp />}
+        <div className='form-login__btns'>
+          <button onClick={() => setSignUpClicked(false)}>Sign In</button>
+          <button onClick={() => setSignUpClicked(true)}>Sign Up</button>
+          <div className={`form-login__btns-active ${signUpClicked ? 'signUp' : ''}`}></div>
+        </div>
+        {/* {signUpClicked && <SignIn />} */}
+        <SignUp />
       </div>
     </div>
   )
