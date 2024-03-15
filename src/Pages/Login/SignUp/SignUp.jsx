@@ -1,9 +1,9 @@
-import { useState } from "react"
+import { useEffect } from "react"
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../../config/firebaseConfig'
 import { useFormik } from "formik"
 import { basicSchema } from "../../../schemas"
-export const SignUp = () => {
+export const SignUp = ({signUpClicked}) => {
 
 
 
@@ -18,7 +18,7 @@ export const SignUp = () => {
     actions.resetForm()
   }
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit, isSubmitting } = useFormik({
+  const { values, errors, resetForm, touched, handleBlur, handleChange, handleSubmit, isSubmitting } = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -27,7 +27,9 @@ export const SignUp = () => {
     validationSchema: basicSchema,
     onSubmit,
   })
-
+  useEffect(() => {
+    resetForm()
+  }, [signUpClicked])
 
   return (
     <>
@@ -67,7 +69,7 @@ export const SignUp = () => {
             value={values.confirmPassword}
             placeholder="Confirm password" />
           {errors.confirmPassword && touched.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
-        </label>  
+        </label>
         <button disabled={isSubmitting} type="submit" className="register-signUp">Sign Up</button>
       </form>
     </>

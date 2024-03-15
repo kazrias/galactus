@@ -14,8 +14,8 @@ const Login = () => {
           <div className={`form-login__btns-active ${signUpClicked ? 'signUp' : ''}`}></div>
         </div>
         <div className={`login-wrapper ${signUpClicked ? 'active' : ''}`}>
-          <SignIn />
-          <SignUp />
+          <SignIn signUpClicked={signUpClicked}/>
+          <SignUp signUpClicked={signUpClicked}/>
         </div>
       </div>
     </div >

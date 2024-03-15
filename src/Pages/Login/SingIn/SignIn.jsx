@@ -3,12 +3,13 @@
 import { auth } from '../../../config/firebaseConfig'
 import { useFormik } from "formik"
 import { signInSchema } from "../../../schemas/signInSchema"
-export const SignIn = () => {
+import { useEffect } from 'react'
+export const SignIn = ({ signUpClicked }) => {
   const onSubmit = async (values, actions) => {
     actions.resetForm()
   }
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit, isSubmitting } = useFormik({
+  const { values, errors, resetForm, touched, handleBlur, handleChange, handleSubmit, isSubmitting } = useFormik({
     initialValues: {
       signInEmail: '',
       signInPassword: '',
@@ -16,7 +17,9 @@ export const SignIn = () => {
     validationSchema: signInSchema,
     onSubmit,
   })
-
+  useEffect(() => {
+    resetForm()
+  }, [signUpClicked])
 
   return (
     <>
