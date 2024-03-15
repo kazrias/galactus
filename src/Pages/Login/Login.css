@@ -13,7 +13,7 @@
   gap: 50px;
   position: relative;
   left: 0;
-  transition: all .8s;
+  transition: all .6s;
 }
 
 .login-wrapper.active {
