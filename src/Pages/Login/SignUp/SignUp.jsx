@@ -3,12 +3,15 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../../config/firebaseConfig'
 import { useFormik } from "formik"
 import { basicSchema } from "../../../schemas"
-export const SignUp = ({signUpClicked}) => {
-
-
-
+export const SignUp = ({ signUpClicked }) => {
   const onSubmit = async (values, actions) => {
     await createUserWithEmailAndPassword(auth, values.email, values.password)
+      .then((userCredential) => {
+        // Signed up 
+        console.log('aaaaaaaaaaa');
+        const user = userCredential.user;
+        // console.log(user);
+      })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;

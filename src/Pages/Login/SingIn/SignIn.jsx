@@ -1,12 +1,30 @@
 
 
 import { auth } from '../../../config/firebaseConfig'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useFormik } from "formik"
 import { signInSchema } from "../../../schemas/signInSchema"
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 export const SignIn = ({ signUpClicked }) => {
+  const [wrongData, setWrongData] = useState(false)
   const onSubmit = async (values, actions) => {
-    actions.resetForm()
+    await signInWithEmailAndPassword(auth, values.signInEmail, values.signInPassword)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        setWrongData(false)
+        actions.resetForm()
+      })
+      .catch((error) => {
+        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        setWrongData(true)
+        actions.setFieldValue('signInPassword', '');
+      });
+
   }
 
   const { values, errors, resetForm, touched, handleBlur, handleChange, handleSubmit, isSubmitting } = useFormik({
@@ -47,6 +65,7 @@ export const SignIn = ({ signUpClicked }) => {
             value={values.signInPassword}
             placeholder="Password" />
           {errors.signInPassword && touched.signInPassword && <span className="error">{errors.signInPassword}</span>}
+          {wrongData && <span className="error">Wrong email or password</span>}
         </label>
 
         <button disabled={isSubmitting} type="submit" className="register-signUp">Sign In</button>
