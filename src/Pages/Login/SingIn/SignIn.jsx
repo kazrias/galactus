@@ -2,14 +2,17 @@
 
 import { auth } from '../../../config/firebaseConfig'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useNavigate } from "react-router-dom"
 import { useFormik } from "formik"
 import { signInSchema } from "../../../schemas/signInSchema"
 import { useEffect, useState } from 'react'
 export const SignIn = ({ signUpClicked }) => {
   const [wrongData, setWrongData] = useState(false)
+  const navigate=useNavigate()
   const onSubmit = async (values, actions) => {
     await signInWithEmailAndPassword(auth, values.signInEmail, values.signInPassword)
       .then((userCredential) => {
+        navigate('/')
         const user = userCredential.user;
         console.log(user);
         setWrongData(false)

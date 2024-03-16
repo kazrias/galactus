@@ -1,13 +1,14 @@
 import './HeaderStyle.css'
-
 import { CartBtn } from './HeaderBtns/CartBtn/CartBtn'
 import { FavBtn } from './HeaderBtns/FavBtn/FavBtn'
 import { Link } from 'react-router-dom'
 import { UserBtn } from './HeaderBtns/UserBtn'
 import { OrdersBtn } from './HeaderBtns/OrdersBtn'
 import { LogoBtn } from './HeaderBtns/LogoBtn'
+import { useSelector } from 'react-redux'
 
 export const Header = ({ onClickOverlay, total, onClickAnyList, cartCount, onClickCart }) => {
+  const logged = useSelector(state => state.app.loggedUser.logged)
   const onClickList = () => {
     onClickAnyList()
     onClickOverlay()
@@ -26,7 +27,7 @@ export const Header = ({ onClickOverlay, total, onClickAnyList, cartCount, onCli
         </Link>
         <CartBtn total={total} onClickCart={onClickCart} cartCount={cartCount} />
         <Link className="header-orders header-btn" to='/login'>
-          <UserBtn />
+          <UserBtn logged={logged}/>
         </Link>
       </div>
     </header>

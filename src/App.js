@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Background } from "./components/Background/Background";
 import { Header } from "./components/Header/Header";
@@ -8,20 +8,27 @@ import { OrdersPage } from "./Pages/OrdersPage";
 import { FavoritesPage } from "./Pages/FavoritesPage";
 import { NotFound } from "./Pages/NotFound";
 import Login from './Pages/Login/Login'
-
+import { auth } from "./config/firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
 import { Route, Routes } from 'react-router-dom'
-
-import { useFavorites } from "./hooks/useFavorites";
-import { useCartItems } from "./hooks/useCartItems";
-import { useOrders } from "./hooks/useOrders";
-
+import { loginUser } from "./store/slices/appSlice";
 import './app.css'
+import { useDispatch } from "react-redux";
 
 const App = () => {
   const [isCartOpened, setIsCartOpened] = useState(false);
   const [isCartClosing, setIsCartClosing] = useState(false);
-
-
+  const dispatch = useDispatch()
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        dispatch(loginUser({ logged: true, data: '' }))
+      } else {
+        dispatch(loginUser({ logged: false, data: '' }))
+      }
+    });
+  }, [])
   const onClickOverlay = () => {
     setIsCartClosing(true);
     setTimeout(() => {
@@ -56,14 +63,14 @@ const App = () => {
     <>
       <Header onClickOverlay={onClickOverlay} onClickCart={onClickCart} onClickAnyList={onClickAnyList} />
       <Routes>
-        <Route path='/' element={<Home  />} />
+        <Route path='/' element={<Home />} />
         <Route path='/orders' element={<OrdersPage />} />
-        <Route path='/favorites' element={<FavoritesPage  />} />
-        <Route path='/login' element={<Login  />} />
+        <Route path='/favorites' element={<FavoritesPage />} />
+        <Route path='/login' element={<Login />} />
 
         <Route path='*' element={<NotFound />} />
-        
-        
+
+
       </Routes>
       {isCartOpened && <Cart onClickOverlay={onClickOverlay} isCartClosing={isCartClosing} isCartOpened={isCartOpened} />}
       <Background />
