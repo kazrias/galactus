@@ -8,13 +8,23 @@ import Sceleton from '../Sceleton/Sceleton'
 import { addToCart, deleteFromCart } from '../../store/slices/cartSlice'
 import { addToFavorites, deleteFromFavorites } from '../../store/slices/favoritesSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 export const Product = ({ isLoading, id, name, price, images }) => {
-  const [isAdded, setIsAdded] = useState(false)
-  const [isLiked, setIsLiked] = useState(false)
+  const navigate = useNavigate()
+  const [isHoveredSecond, setIsHoveredSecond] = useState(false);
+  const [isHoveredThird, setIsHoveredThird] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+
   const cartItems = useSelector(state => state.cart.cart)
   const favoriteItems = useSelector(state => state.favorites.favorites)
+  const logged = useSelector(state => state.app.loggedUser.logged)
   const dispatch = useDispatch()
-  const onClickAddCart = () => {
+  const onClickAddCart = async () => {
+    if (!logged) {
+      navigate('/login')
+      return
+    }
     if (isAdded) {
       dispatch(deleteFromCart({ id }))
     }
@@ -22,7 +32,11 @@ export const Product = ({ isLoading, id, name, price, images }) => {
       dispatch(addToCart({ id, name, price, images }))
   }
 
-  const onClickLike = () => {
+  const onClickLike = async () => {
+    if (!logged) {
+      navigate('/login')
+      return
+    }
     if (isLiked) {
       dispatch(deleteFromFavorites({ id }))
     }
@@ -43,12 +57,11 @@ export const Product = ({ isLoading, id, name, price, images }) => {
       {
         isLoading ? <Sceleton /> : <div className="products-item">
           <div className="products-item__link">
-            <img className='products-item__img products-item__img--first' src={images.first} alt="" />
-            <div className='products-item__hidden products-item__hidden--secondImg'></div>
-            <img className='products-item__img products-item__img--second' src={images.second} alt="" />
-            <div className='products-item__hidden products-item__hidden--thirdImg'></div>
-            <img className='products-item__img products-item__img--third' src={images.third} alt="" />
-            <button onClick={onClickLike} onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} className={`products-item__like ${isLiked ? 'active' : ''}`} > <img src={isLiked ? like : unlike} alt="like/dislike" /></button>
+            <img className='products-item__img' src={isHoveredSecond ? images.second : isHoveredThird ? images.third : images.first} alt="" />
+            <div onMouseEnter={() => setIsHoveredSecond(true)} onMouseLeave={() => setIsHoveredSecond(false)} className='products-item__hidden products-item__hidden--secondImg'></div>
+            <div onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} className='products-item__hidden products-item__hidden--thirdImg'></div>
+            <button onMouseEnter={() => setIsHoveredThird(true)} onMouseLeave={() => setIsHoveredThird(false)} onClick={onClickLike} className={`products-item__like ${isLiked ? 'active' : ''}`} > <img src={isLiked ? like : unlike} alt="like/dislike" /></button>
+
           </div>
           <div className="products-item__info">
             <p className='products-item__title'><span>{name}</span></p>
