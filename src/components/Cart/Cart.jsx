@@ -3,7 +3,9 @@ import { Ufo } from '../Ufo/Ufo';
 import { CartItem } from '../CartItem/CartItem';
 import { Space } from '../Space/Space';
 import { Total } from '../Total/Total';
-export const Cart = ({ total, onClickOverlay, isCartClosing, isCartOpened, setCartItems, cartItems = [], onClickOrder }) => {
+import { useSelector } from 'react-redux';
+export const Cart = ({ onClickOverlay, isCartClosing, isCartOpened }) => {
+  const cartItems = useSelector(state => state.cart.cart)
   return (
     isCartOpened && <div className="cart-wrapper">
       <div onClick={onClickOverlay} className={`overlay ${isCartClosing ? 'closing' : ''}`} ></div >
@@ -12,13 +14,13 @@ export const Cart = ({ total, onClickOverlay, isCartClosing, isCartOpened, setCa
         <div className="cart-items">
           {
             cartItems.length ? cartItems.map(obj => (
-              <CartItem setCartItems={setCartItems} cartItems={cartItems} key={obj.id} {...obj} />
+              <CartItem cartItems={cartItems} key={obj.id} {...obj} />
             )) : <Ufo />
           }
         </div>
         <Space />
         {
-          cartItems.length ? <Total onClickOrder={onClickOrder} total={total} /> : null
+          cartItems.length ? <Total /> : null
         }
 
       </div>
