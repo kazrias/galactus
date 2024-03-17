@@ -6,7 +6,8 @@ import { UserBtn } from './HeaderBtns/UserBtn'
 import { OrdersBtn } from './HeaderBtns/OrdersBtn'
 import { LogoBtn } from './HeaderBtns/LogoBtn'
 import { useSelector } from 'react-redux'
-
+import { ProfileMenu } from '../ProfileMenu/ProfileMenu'
+import { useState } from 'react'
 export const Header = ({ onClickOverlay, total, onClickAnyList, cartCount, onClickCart }) => {
   const logged = useSelector(state => state.app.loggedUser.logged)
   const onClickList = () => {
@@ -26,9 +27,9 @@ export const Header = ({ onClickOverlay, total, onClickAnyList, cartCount, onCli
           <FavBtn onClickList={onClickList} />
         </Link>
         <CartBtn total={total} onClickCart={onClickCart} cartCount={cartCount} />
-        <Link className="header-orders header-btn" to='/login'>
+        <div className="header-orders header-btn">
           <UserBtn logged={logged}/>
-        </Link>
+        </div>
       </div>
     </header>
   )
