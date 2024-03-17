@@ -9,8 +9,6 @@ import { addToCart, deleteFromCart } from '../../store/slices/cartSlice'
 import { addToFavorites, deleteFromFavorites } from '../../store/slices/favoritesSlice'
 import { useDispatch, useSelector } from 'react-redux'
 export const Product = ({ isLoading, id, name, price, images }) => {
-  const [isHoveredSecond, setIsHoveredSecond] = useState(false);
-  const [isHoveredThird, setIsHoveredThird] = useState(false);
   const [isAdded, setIsAdded] = useState(false)
   const [isLiked, setIsLiked] = useState(false)
   const cartItems = useSelector(state => state.cart.cart)
