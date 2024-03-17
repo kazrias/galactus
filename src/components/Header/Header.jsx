@@ -20,15 +20,17 @@ export const Header = ({ onClickOverlay, total, onClickAnyList, cartCount, onCli
         <LogoBtn />
       </Link>
       <div className="header-btns">
-        <Link onClick={onClickList} to='/orders' className="header-orders header-btn">
-          <OrdersBtn />
-        </Link>
-        <Link to='/favorites'>
-          <FavBtn onClickList={onClickList} />
-        </Link>
-        <CartBtn total={total} onClickCart={onClickCart} cartCount={cartCount} />
+        {logged && <>
+          <Link onClick={onClickList} to='/orders' className="header-orders header-btn">
+            <OrdersBtn />
+          </Link>
+          <Link to='/favorites'>
+            <FavBtn onClickList={onClickList} />
+          </Link>
+          <CartBtn total={total} onClickCart={onClickCart} cartCount={cartCount} />
+        </>}
         <div className="header-orders header-btn">
-          <UserBtn logged={logged}/>
+          <UserBtn logged={logged} />
         </div>
       </div>
     </header>

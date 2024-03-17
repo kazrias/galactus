@@ -8,7 +8,7 @@ import { signInSchema } from "../../../schemas/signInSchema"
 import { useEffect, useState } from 'react'
 export const SignIn = ({ signUpClicked }) => {
   const [wrongData, setWrongData] = useState(false)
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const onSubmit = async (values, actions) => {
     await signInWithEmailAndPassword(auth, values.signInEmail, values.signInPassword)
       .then((userCredential) => {
@@ -67,7 +67,7 @@ export const SignIn = ({ signUpClicked }) => {
             id="signInPassword"
             value={values.signInPassword}
             placeholder="Password" />
-          {errors.signInPassword && touched.signInPassword && <span className="error">{errors.signInPassword}</span>}
+          {!wrongData && errors.signInPassword && touched.signInPassword && <span className="error">{errors.signInPassword}</span>}
           {wrongData && <span className="error">Wrong email or password</span>}
         </label>
 
