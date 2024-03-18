@@ -10,7 +10,7 @@ import { addToFavorites, deleteFromFavorites } from '../../store/slices/favorite
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { database } from '../../config/firebaseConfig'
-import { ref, push, set } from "firebase/database";
+import { ref, push, set, remove } from "firebase/database";
 
 export const Product = ({ isLoading, id, name, price, images }) => {
   const navigate = useNavigate()
@@ -29,13 +29,17 @@ export const Product = ({ isLoading, id, name, price, images }) => {
       return
     }
     if (isAdded) {
+      const key = cartItems.find(cart => cart.id == id).key
+      const cartItemRef = ref(database, `cart/${data}/${key}`)
+      await remove(cartItemRef)
       dispatch(deleteFromCart({ id }))
     }
     else {
       const cartRef = ref(database, `cart/${data}`)
       const newCartItemRef = await push(cartRef);
-      await set(newCartItemRef, { id, name, price, images })
-      dispatch(addToCart({ id, name, price, images }))
+      const key = newCartItemRef.key
+      await set(newCartItemRef, { id, name, price, images, key })
+      dispatch(addToCart({ id, name, price, images, key }))
     }
   }
 

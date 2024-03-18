@@ -15,7 +15,6 @@ export const cartSlice = createSlice({
       state.cart = state.cart.filter(({ id }) => id !== action.payload.id)
     },
     updateCart: (state, action) => {
-
       state.cart = action.payload;
     }
   }

@@ -35,13 +35,17 @@ const App = () => {
   useEffect(() => {
 
     const cartItems = ref(database, `cart/${userId}`);
-    onValue(cartItems, (snapshot) => {
+    const listener = onValue(cartItems, (snapshot) => {
       const data = snapshot.val();
-      const cartItems = Object.values(data)
-      dispatch(updateCart(cartItems))
+      if (data) {
+        const cartItems = Object.values(data)
+        dispatch(updateCart(cartItems))
+      }
 
     })
-
+    return () => {
+      listener()
+    }
   }, [userId])
   const onClickOverlay = () => {
     setIsCartClosing(true);

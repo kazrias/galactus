@@ -1,5 +1,5 @@
 import { useState } from 'react'
-export const OrderProduct = ({}) => {
+export const OrderProduct = () => {
   const [isHoveredSecond, setIsHoveredSecond] = useState(false);
   const [isHoveredThird, setIsHoveredThird] = useState(false);
   return (<>
