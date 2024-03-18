@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { auth } from '../../config/firebaseConfig'
 import { signOut } from 'firebase/auth'
 import { loginUser } from '../../store/slices/appSlice'
-import { UseDispatch, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { updateCart } from '../../store/slices/cartSlice'
 import './ProfileMenu.css'
 
 export const ProfileMenu = ({ profileClicked }) => {
@@ -16,6 +17,7 @@ export const ProfileMenu = ({ profileClicked }) => {
         // An error happened.
       });
       dispatch(loginUser({ logged: false, data: '' }))
+      dispatch(updateCart([]))
       setOutClicked(false)
     }
     if (outClicked) signOutUser()
