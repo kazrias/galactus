@@ -1,10 +1,17 @@
 import './CartItem.css'
 import X from '../../images/x-symbol-svgrepo-com.svg'
 import { deleteFromCart } from '../../store/slices/cartSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { database } from '../../config/firebaseConfig'
+import { remove, ref } from 'firebase/database'
 export const CartItem = ({ name, price, id, images }) => {
   const dispatch = useDispatch()
-  const onClickDelete = () => {
+  const cartItems = useSelector(state => state.cart.cart)
+  const { data } = useSelector(state => state.app.loggedUser)
+  const onClickDelete = async () => {
+    const key = cartItems.find(cart => cart.id == id).key
+    const cartItemRef = ref(database, `cart/${data}/${key}`)
+    await remove(cartItemRef)
     dispatch(deleteFromCart({ id }))
   }
   return (

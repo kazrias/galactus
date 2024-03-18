@@ -39,7 +39,7 @@ export const Product = ({ isLoading, id, name, price, images }) => {
       const newCartItemRef = await push(cartRef);
       const key = newCartItemRef.key
       await set(newCartItemRef, { id, name, price, images, key })
-      dispatch(addToCart({ id, name, price, images, key }))
+      // dispatch(addToCart({ id, name, price, images, key }))
     }
   }
 

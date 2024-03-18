@@ -7,7 +7,7 @@ export const Total = () => {
       <div className="total">
         <p className='total-text'>Total</p>
         <div></div>
-        <p className='total-money'>{totalPrice}$</p>
+        <p className='total-money'>{totalPrice.toFixed(2)}$</p>
       </div>
       <button className='total-btn'>Order</button>
     </div>
