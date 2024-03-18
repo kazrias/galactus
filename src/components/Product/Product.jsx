@@ -9,6 +9,9 @@ import { addToCart, deleteFromCart } from '../../store/slices/cartSlice'
 import { addToFavorites, deleteFromFavorites } from '../../store/slices/favoritesSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { database } from '../../config/firebaseConfig'
+import { ref, push, set } from "firebase/database";
+
 export const Product = ({ isLoading, id, name, price, images }) => {
   const navigate = useNavigate()
   const [isHoveredSecond, setIsHoveredSecond] = useState(false);
@@ -18,7 +21,7 @@ export const Product = ({ isLoading, id, name, price, images }) => {
 
   const cartItems = useSelector(state => state.cart.cart)
   const favoriteItems = useSelector(state => state.favorites.favorites)
-  const logged = useSelector(state => state.app.loggedUser.logged)
+  const { logged, data } = useSelector(state => state.app.loggedUser)
   const dispatch = useDispatch()
   const onClickAddCart = async () => {
     if (!logged) {
@@ -28,8 +31,12 @@ export const Product = ({ isLoading, id, name, price, images }) => {
     if (isAdded) {
       dispatch(deleteFromCart({ id }))
     }
-    else
+    else {
+      const cartRef = ref(database, `cart/${data}`)
+      const newCartItemRef = await push(cartRef);
+      await set(newCartItemRef, { id, name, price, images })
       dispatch(addToCart({ id, name, price, images }))
+    }
   }
 
   const onClickLike = async () => {

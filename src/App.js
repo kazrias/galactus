@@ -13,22 +13,36 @@ import { onAuthStateChanged } from "firebase/auth";
 import { Route, Routes } from 'react-router-dom'
 import { loginUser } from "./store/slices/appSlice";
 import './app.css'
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { database } from "./config/firebaseConfig";
+import { ref, onValue } from "firebase/database";
+import { updateCart } from "./store/slices/cartSlice";
 const App = () => {
   const [isCartOpened, setIsCartOpened] = useState(false);
   const [isCartClosing, setIsCartClosing] = useState(false);
+  const userId = useSelector(state => state.app.loggedUser.data)
   const dispatch = useDispatch()
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
-        dispatch(loginUser({ logged: true, data: '' }))
+        dispatch(loginUser({ logged: true, data: uid }))
       } else {
         dispatch(loginUser({ logged: false, data: '' }))
       }
     });
   }, [])
+  useEffect(() => {
+
+    const cartItems = ref(database, `cart/${userId}`);
+    onValue(cartItems, (snapshot) => {
+      const data = snapshot.val();
+      const cartItems = Object.values(data)
+      dispatch(updateCart(cartItems))
+
+    })
+
+  }, [userId])
   const onClickOverlay = () => {
     setIsCartClosing(true);
     setTimeout(() => {
