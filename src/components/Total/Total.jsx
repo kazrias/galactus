@@ -1,15 +1,20 @@
-import './Total.css'
-import { useSelector } from 'react-redux'
+import "./Total.css";
+
+import { useSelector } from "react-redux";
+
 export const Total = () => {
-  const totalPrice = useSelector(state => state.cart.cart).reduce((curr, item) => curr + item.price, 0)
+  const totalPrice = useSelector((state) => state.cart.cart).reduce(
+    (curr, item) => curr + item.price,
+    0,
+  );
   return (
     <div className='total-box'>
-      <div className="total">
+      <div className='total'>
         <p className='total-text'>Total</p>
         <div></div>
         <p className='total-money'>{totalPrice.toFixed(2)}$</p>
       </div>
       <button className='total-btn'>Order</button>
     </div>
-  )
-}
+  );
+};

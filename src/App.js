@@ -1,6 +1,5 @@
 import "./app.css";
 
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { Background } from "./components/Background/Background";
