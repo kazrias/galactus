@@ -4,17 +4,20 @@ import { useState, useEffect } from 'react';
 import { Products } from '../Products/Products';
 
 import { fetchCategory } from '../../services/fetchCategory';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const Info = ({ setFavorites, favorites, setCartItems, cartItems, path }) => {
-  const [products, setProducts] = useState([]);
-  const [currCategory, setCurrCategory] = useState('Clothes')
+import { addProducts } from '../../store/slices/appSlice';
+
+export const Info = ({ }) => {
+  const dispatch = useDispatch()
+  const currCategory = useSelector(state => state.app.category)
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true)
       const res = await fetchCategory(currCategory)
       setIsLoading(false)
-      setProducts(res.data);
+      dispatch(addProducts({ products: res.data }))
     }
     fetchData();
   }, [currCategory])
@@ -22,8 +25,8 @@ export const Info = ({ setFavorites, favorites, setCartItems, cartItems, path })
   return (
     <section className="info">
       <div className="container container--info">
-        <Categories currCategory={currCategory} setCurrCategory={setCurrCategory} />
-        <Products path={path} isLoading={isLoading} setFavorites={setFavorites} favorites={favorites} setCartItems={setCartItems} cartItems={cartItems} items={products} />
+        <Categories />
+        <Products isLoading={isLoading} />
       </div>
     </section>
   )
