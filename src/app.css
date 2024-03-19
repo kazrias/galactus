@@ -26,8 +26,9 @@ form {
   background-size: cover;
 } */
 body {
-  background: url('./images/mainBg.jpg') no-repeat;
-  background-attachment: fixed;
+  /* background: url('./images/mainBg.jpg') no-repeat; */
+  /* background-attachment: fixed; */
+  background-color: rgb(16, 51, 179);
   min-height: 100dvh;
 }
 
