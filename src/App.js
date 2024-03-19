@@ -17,8 +17,6 @@ import { useCartClick } from "./hooks/useCartClick";
 import { useCurrentLocation } from "./hooks/useCurrentLocation";
 import { useFetchCart } from "./hooks/useFetchCart";
 
-
-
 const App = () => {
   useAuthUser();
   useFetchCart();
