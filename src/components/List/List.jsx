@@ -1,6 +1,8 @@
 import "./List.css";
 
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 
 import { EmptyList } from "../EmptyList/EmptyList";
 import { Products } from "../Products/Products";
@@ -16,6 +18,7 @@ export const List = () => {
         break;
     }
   };
+  
   return (
     <>
       <section className='list'>

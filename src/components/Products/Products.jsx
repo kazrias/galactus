@@ -26,7 +26,7 @@ export const Products = ({ isLoading }) => {
   return (
     <section className="products">
       {
-        renderItems(path)
+        renderItems()
       }
     </section>
 

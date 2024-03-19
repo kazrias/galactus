@@ -1,5 +1,8 @@
 import { List } from "../components/List/List";
 
-export const FavoritesPage = ({}) => {
+import { useNavigateTo } from "../hooks/useNavigateTo";
+
+export const FavoritesPage = () => {
+  useNavigateTo();
   return <List />;
 };
