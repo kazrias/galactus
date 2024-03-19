@@ -6,9 +6,10 @@
   box-sizing: border-box;
 }
 
-form{
+form {
   display: block;
 }
+
 /* body:before {
   content: "";
   display: block;
@@ -24,9 +25,10 @@ form{
   -o-background-size: cover;
   background-size: cover;
 } */
-body{
+body {
   background: url('./images/mainBg.jpg') no-repeat;
   background-attachment: fixed;
+  min-height: 120svh;
 }
 
 input,
