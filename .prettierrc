@@ -1,0 +1,26 @@
+{
+  "importOrder": [
+    ".css",
+    "react",
+    "react-redux",
+    "(components/|./index)",
+    "<THIRD_PARTY_MODULES>",
+    "interface",
+    "(?=content|api)",
+    "store/slices",
+    "context/",
+    "mock/",
+    "utils/",
+    "hooks/",
+    "config",
+    ".svg",
+  
+    "firebase/",
+    "^../(.*)$",
+    "(?=./styles.module.scss)"
+  ],
+  "tabWidth": 2,
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}
