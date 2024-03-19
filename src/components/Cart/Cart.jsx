@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { CartItem } from "../CartItem/CartItem";
 import { Space } from "../Space/Space";
 import { Total } from "../Total/Total";
-import { Ufo } from "../Ufo/Ufo";
+import Ufo from "../Ufo/Ufo";
 
 export const Cart = ({ onClickOverlay, isCartClosing, isCartOpened }) => {
   const cartItems = useSelector((state) => state.cart.cart);

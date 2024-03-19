@@ -1,6 +1,8 @@
 import "./Ufo.css";
 
-export const Ufo = () => {
+import React from "react";
+
+const Ufo = () => {
   return (
     <>
       <p className='ufo-text'>Your cart is empty.</p>
@@ -37,3 +39,5 @@ export const Ufo = () => {
     </>
   );
 };
+
+export default React.memo(Ufo);

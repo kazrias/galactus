@@ -3,7 +3,6 @@ import "./app.css";
 import { Route, Routes } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import { Background } from "./components/Background/Background";
 import { Cart } from "./components/Cart/Cart";
 import { Header } from "./components/Header/Header";
 
@@ -52,7 +51,7 @@ const App = () => {
           isCartOpened={isCartOpened}
         />
       )}
-      <Background />
+      
     </>
   );
 };
