@@ -27,8 +27,8 @@ form {
 } */
 body {
   background: url('./images/mainBg.jpg') no-repeat;
-  background-attachment: fixed;
-  min-height: 120svh;
+  /* background-attachment: fixed; */
+  min-height: 100dvh;
 }
 
 input,
