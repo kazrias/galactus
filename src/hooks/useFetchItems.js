@@ -8,7 +8,7 @@ import { database } from "../config/firebaseConfig";
 
 import { onValue, ref } from "firebase/database";
 
-export const useFetchCart = (type) => {
+export const useFetchItems = (type) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.app.loggedUser.data);
 
@@ -18,14 +18,13 @@ export const useFetchCart = (type) => {
       const data = snapshot.val();
       if (data) {
         const items = Object.values(data);
-        switch(type){
-          case 'cart':
+        switch (type) {
+          case "cart":
             dispatch(updateCart(items));
             break;
-            case 'favorites':
-              dispatch(updateFavorites(items))
-
-
+          case "favorites":
+            dispatch(updateFavorites(items));
+            break;
         }
       }
     });

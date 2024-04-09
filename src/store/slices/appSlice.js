@@ -1,17 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  path: 'home',
-  category: 'Clothes',
+  path: "home",
+  category: "Clothes",
   products: [],
   loggedUser: {
     logged: false,
-    data: ''
-  }
-}
+    data: "",
+  },
+  loading: true,
+};
 
 export const appSlice = createSlice({
-  name: 'app',
+  name: "app",
   initialState,
   reducers: {
     changePath: (state, action) => {
@@ -26,9 +27,18 @@ export const appSlice = createSlice({
     loginUser: (state, action) => {
       state.loggedUser.logged = action.payload.logged;
       state.loggedUser.data = action.payload.data;
-    }
-  }
-
-})
-export const { changePath, addProducts, changeCategory, loginUser } = appSlice.actions;
-export default appSlice.reducer
+    },
+    changeLoading: (state, action) => {
+      console.log('worked');
+      state.loading = action.payload.loading;
+    },
+  },
+});
+export const {
+  changePath,
+  addProducts,
+  changeCategory,
+  loginUser,
+  changeLoading,
+} = appSlice.actions;
+export default appSlice.reducer;

@@ -34,6 +34,7 @@ export const Product = ({ isLoading, id, name, price, images }) => {
   const dispatch = useDispatch();
 
   const onClickAddCart = async () => {
+    console.log(data);
     if (!logged) {
       navigate("/login");
       return;
@@ -48,7 +49,6 @@ export const Product = ({ isLoading, id, name, price, images }) => {
       const newCartItemRef = await push(cartRef);
       const key = newCartItemRef.key;
       await set(newCartItemRef, { id, name, price, images, key });
-      // dispatch(addToCart({ id, name, price, images, key }))
     }
   };
 
@@ -58,7 +58,7 @@ export const Product = ({ isLoading, id, name, price, images }) => {
       return;
     }
     if (isLiked) {
-      const key = favoriteItems.find((cart) => cart.id == id).key;
+      const key = favoriteItems.find((fav) => fav.id == id).key;
       const favItemRef = ref(database, `favorites/${data}/${key}`);
       await remove(favItemRef);
       dispatch(deleteFromFavorites({ id }));

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { loginUser } from "../store/slices/appSlice";
@@ -8,6 +8,7 @@ import { auth } from "../config/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 
 export const useAuthUser = () => {
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
     const listener = onAuthStateChanged(auth, (user) => {
@@ -17,9 +18,12 @@ export const useAuthUser = () => {
       } else {
         dispatch(loginUser({ logged: false, data: "" }));
       }
+      setLoading(false);
     });
+
     return () => {
       listener();
     };
   }, []);
+  return loading
 };

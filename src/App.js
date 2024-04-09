@@ -15,11 +15,12 @@ import { OrdersPage } from "./Pages/OrdersPage";
 import { useAuthUser } from "./hooks/useAuthUser";
 import { useCartClick } from "./hooks/useCartClick";
 import { useCurrentLocation } from "./hooks/useCurrentLocation";
-import { useFetchCart } from "./hooks/useFetchCart";
+import { useFetchItems } from "./hooks/useFetchItems";
 
 const App = () => {
   useAuthUser();
-  useFetchCart();
+  useFetchItems("cart");
+  useFetchItems("favorites");
   useCurrentLocation();
   const {
     onClickOverlay,
