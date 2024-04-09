@@ -20,7 +20,14 @@ export const Header = ({ onClickOverlay, onClickAnyList, onClickCart }) => {
   };
   return (
     <header className='header'>
-      <Link onClick={onClickList} to='/' className='header-link'>
+      <Link
+        onClick={() => {
+          onClickList;
+          dispatch(changePath("home"));
+        }}
+        to='/'
+        className='header-link'
+      >
         <LogoBtn />
       </Link>
       <div className='header-btns'>

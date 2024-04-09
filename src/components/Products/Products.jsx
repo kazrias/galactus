@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { OrderProduct } from "../OrderProduct/OrderProduct";
 import { Product } from "../Product/Product";
 
-export const Products = ({ isLoading, items = [] }) => {
+export const Products = ({ isLoading, items=[] }) => {
   const path = useSelector((state) => state.app.path);
   const products = useSelector((state) => state.app.products);
   const renderItems = () => {
