@@ -3,13 +3,19 @@ import "./List.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-
 import { EmptyList } from "../EmptyList/EmptyList";
 import { Products } from "../Products/Products";
 
 export const List = () => {
   const path = useSelector((state) => state.app.path);
-  const items = [];
+  const items = useSelector((state) => {
+    switch (path) {
+      case "favorites":
+        return state.favorites.favorites;
+      default:
+        return [];
+    }
+  });
   const onClickClear = (path) => {
     switch (path) {
       case "orders":
@@ -18,7 +24,7 @@ export const List = () => {
         break;
     }
   };
-  
+  console.log(items);
   return (
     <>
       <section className='list'>
@@ -28,7 +34,7 @@ export const List = () => {
         >
           {items.length ? (
             <>
-              <Products />
+              <Products items={items}/>
               <div className='button-wrapper'>
                 <button
                   onClick={() => onClickClear(path)}

@@ -5,7 +5,7 @@ import { useNavigateTo } from "../hooks/useNavigateTo";
 
 export const FavoritesPage = () => {
   const loading = useAuthUser();
-  useNavigateTo();
-  if(loading) return <div>AAAAAAA</div>
+  useNavigateTo(loading);
+  if (loading) return <div>AAAAAAA</div>;
   return <List />;
 };

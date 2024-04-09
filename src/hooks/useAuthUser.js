@@ -8,6 +8,7 @@ import { auth } from "../config/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 
 export const useAuthUser = () => {
+  console.log('works');
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
