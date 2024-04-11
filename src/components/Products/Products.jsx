@@ -19,7 +19,7 @@ export const Products = ({ isLoading, items=[] }) => {
           />
         ));
       case "orders":
-        return items.map((obj, index) => <OrderProduct key={index} />);
+        return items.map((obj, index) => <OrderProduct key={obj.id} {...obj}/>);
       case "favorites":
         return items.map((obj, index) => <Product key={obj.id} {...obj} />);
     }

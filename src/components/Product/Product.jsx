@@ -34,7 +34,6 @@ export const Product = ({ isLoading, id, name, price, images }) => {
   const dispatch = useDispatch();
 
   const onClickAddCart = async () => {
-    console.log(data);
     if (!logged) {
       navigate("/login");
       return;

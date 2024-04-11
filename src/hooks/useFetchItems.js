@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateCart } from "../store/slices/cartSlice";
 import { updateFavorites } from "../store/slices/favoritesSlice";
+import { updateOrders } from "../store/slices/ordersSlice";
 
 import { database } from "../config/firebaseConfig";
 
@@ -24,6 +25,9 @@ export const useFetchItems = (type) => {
             break;
           case "favorites":
             dispatch(updateFavorites(items));
+            break;
+          case "orders":
+            dispatch(updateOrders(items));
             break;
         }
       }
