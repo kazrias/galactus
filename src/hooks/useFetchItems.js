@@ -2,8 +2,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { updateCart } from "../store/slices/cartSlice";
-import { updateFavorites } from "../store/slices/favoritesSlice";
-import { updateOrders } from "../store/slices/ordersSlice";
+import {
+  changeFavsLoading,
+  updateFavorites,
+} from "../store/slices/favoritesSlice";
+import { changeOrdersLoading, updateOrders } from "../store/slices/ordersSlice";
 
 import { database } from "../config/firebaseConfig";
 
@@ -14,6 +17,8 @@ export const useFetchItems = (type) => {
   const userId = useSelector((state) => state.app.loggedUser.data);
 
   useEffect(() => {
+    dispatch(changeFavsLoading({ loading: true }));
+    dispatch(changeOrdersLoading({ loading: true }));
     const itemsRef = ref(database, `${type}/${userId}`);
     const listener = onValue(itemsRef, (snapshot) => {
       const data = snapshot.val();
@@ -25,11 +30,16 @@ export const useFetchItems = (type) => {
             break;
           case "favorites":
             dispatch(updateFavorites(items));
+            dispatch(changeFavsLoading({ loading: false }));
             break;
           case "orders":
             dispatch(updateOrders(items));
+            dispatch(changeOrdersLoading({ loading: false }));
             break;
         }
+      } else {
+        dispatch(changeFavsLoading({ loading: false }));
+        dispatch(changeOrdersLoading({ loading: false }));
       }
     });
     return () => {
